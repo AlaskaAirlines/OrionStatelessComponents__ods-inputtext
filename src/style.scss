@@ -25,33 +25,41 @@
 // never define layout that would cause effect on element ouside the scope of this component
 
 .ods-inputText {
-  border: 0 solid $color-base-shark;
+  border: 0 solid var(--color-base-shark);
   border-radius: 0;
-  border-width: 0 0 $border-width-thin;
-  padding: $size-scale-xl 0 $size-scale-med;
+  border-width: 0 0 var(--border-width-thin);
+  padding: var(--size-scale-xl) 0 var(--size-scale-sml);
   position: relative;
   transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   width: 100%;
+  font-size: var(--size-breakpoint-all-med);
 
   &:valid,
   &:focus {
     & + .ods-inputText--label {
-      font-size: 0.75rem; // no token value for this
-      padding: $size-scale-sml 0;
+      font-size: 0.75rem;
+      padding: var(--size-scale-small) 0;
     }
+
+    border-color: var(--color-brand-blue-atlas-base);
   }
 
   &.focus-visible {
-    border-color: $color-brand-blue-atlas-base;
-    border-width: 0 0 $border-width-thick;
+    border-color: var(--color-brand-blue-atlas-base);
+    border-width: 0 0 var(--border-width-thick);
   }
 }
 
 .ods-inputText--label {
-  color: $color-base-shark;
+  color: var(--color-base-shark);
   left: 0;
   pointer-events: none;
   position: absolute;
   transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-  padding: $size-scale-xl 0 0;
+  padding: var(--size-scale-xl) 0 0;
+}
+
+.ods-inputText--helpText {
+  font-size: 0.75rem;
+  color: var(--color-base-shark);
 }

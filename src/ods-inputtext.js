@@ -43,6 +43,7 @@ class OdsInputtext extends LitElement {
       ${styleCss}
       <input type="text" required class="ods-inputText" />
       <label class="ods-inputText--label">The label:</label>
+      <label class="ods-inputText--helpText">Help text</label>
     `;
   }
 }
