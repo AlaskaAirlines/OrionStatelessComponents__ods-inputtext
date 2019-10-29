@@ -40,7 +40,9 @@
       font-size: 0.75rem;
       padding: var(--size-scale-small) 0;
     }
+  }
 
+  &:focus {
     border-color: var(--color-brand-blue-atlas-base);
   }
 
@@ -62,4 +64,16 @@
 .ods-inputText--helpText {
   font-size: 0.75rem;
   color: var(--color-base-shark);
+}
+
+.ods-inputText--icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  background-color: orange;
+}
+
+.util_hidden {
+  display: none;
 }
