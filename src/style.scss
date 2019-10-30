@@ -24,10 +24,11 @@
 // layout styles - define any layout specifications for UI that is contained WITHIN the component
 // never define layout that would cause effect on element ouside the scope of this component
 
+
 .ods-inputText {
   border: 0 solid var(--color-base-shark);
   border-radius: 0;
-  border-width: 0 0 var(--border-width-thin);
+  border-width: 0 0 var(--border-width-thick);
   padding: var(--size-scale-xl) 0 var(--size-scale-sml);
   position: relative;
   transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -44,6 +45,11 @@
 
   &:focus {
     border-color: var(--color-brand-blue-atlas-base);
+
+    & ~ .ods-inputText--icon {
+      opacity: 1;
+      z-index: auto;
+    }
   }
 
   &.focus-visible {
@@ -70,10 +76,16 @@
   position: absolute;
   right: 0;
   top: 0;
-  cursor: pointer;
-  background-color: orange;
-}
 
-.util_hidden {
-  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+
+  opacity: 0;
+  z-index: -1; 
+
+  &:focus {
+    opacity: 1;
+    z-index: auto;
+  }
 }

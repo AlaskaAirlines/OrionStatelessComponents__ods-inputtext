@@ -4,7 +4,6 @@
 // ---------------------------------------------------------------------
 
 import { LitElement, html } from "lit-element";
-import { classMap } from "lit-html/directives/class-map"
 
 import "focus-visible/dist/focus-visible.min.js";
 import componentProperties from "./tokens/componentShapeProperties-css.js";
@@ -17,8 +16,6 @@ class OdsInputtext extends LitElement {
     super();
     this.dom = new DOMParser().parseFromString(closelg.svg, 'text/html');
     this.closesvg = this.dom.body.firstChild;
-
-    this.iconClasses = { util_hidden: true };
   }
 
   // function to define props used within the scope of thie component
@@ -32,18 +29,6 @@ class OdsInputtext extends LitElement {
     this.shadowRoot.getElementById('input-element').value = "";
   }
 
-  handleFocus() {
-    this.iconClasses = { ...this.iconClasses, util_hidden: false };
-    this.requestUpdate();
-  }
-
-  handleBlur() {
-    setTimeout(() => {
-      this.iconClasses = { ...this.iconClasses, util_hidden: true };
-      this.requestUpdate();
-    }, 100);
-  }
-
   // function that renders the HTML and CSS into  the scope of the component
   render() {
     return html`
@@ -51,17 +36,16 @@ class OdsInputtext extends LitElement {
       ${styleCss}
       ${iconProperties}
 
-      <input @focus="${this.handleFocus}" @blur="${this.handleBlur}" id="input-element" type="text" required class="ods-inputText" />
+      <input id="input-element" type="text" required class="ods-inputText" />
       
       <label class="ods-inputText--label">The label:</label>
       <label class="ods-inputText--helpText">Help text</label>
 
-      <div
-        tabindex="0"
+      <button
         @click="${this.handleClickClear}"
-        class="ods-inputText--icon ${classMap(this.iconClasses)}">
+        class="ods-inputText--icon">
         ${this.closesvg}
-      </div>
+      </button>
     `;
   }
 }
