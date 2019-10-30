@@ -28,7 +28,8 @@ class OdsInputText extends LitElement {
   static get properties() {
     return {
       value: { type: String },
-      error: { type: String }
+      error: { type: String },
+      required: { type: Boolean }
     };
   }
 
@@ -58,7 +59,7 @@ class OdsInputText extends LitElement {
         value="${this.value}" 
         id="input-element" 
         type="text" 
-        required 
+        ?required="${this.required}" 
         class="${classMap(this.inputClasses)}" 
       />
       
