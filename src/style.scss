@@ -25,7 +25,7 @@
 // never define layout that would cause effect on element ouside the scope of this component
 
 
-.ods-inputText {
+.inputText {
   border: 0 solid var(--color-base-shark);
   border-radius: 0;
   border-width: 0 0 var(--border-width-thick);
@@ -35,18 +35,19 @@
   width: 100%;
   font-size: var(--size-breakpoint-all-med);
 
-  &:valid,
-  &:focus {
-    & + .ods-inputText--label {
-      font-size: 0.75rem;
-      padding: var(--size-scale-small) 0;
-    }
-  }
 
   &:focus {
     border-color: var(--color-brand-blue-atlas-base);
+  }
 
-    & ~ .ods-inputText--icon {
+  &:focus,
+  &--filled {    
+    & + .inputText-label {
+      font-size: 0.75rem;
+      padding: var(--size-scale-sml) 0;
+    }
+
+    & ~ .inputText-icon {
       opacity: 1;
       z-index: auto;
     }
@@ -58,7 +59,7 @@
   }
 }
 
-.ods-inputText--label {
+.inputText-label {
   color: var(--color-base-shark);
   left: 0;
   pointer-events: none;
@@ -67,12 +68,12 @@
   padding: var(--size-scale-xl) 0 0;
 }
 
-.ods-inputText--helpText {
+.inputText-helpText {
   font-size: 0.75rem;
   color: var(--color-base-shark);
 }
 
-.ods-inputText--icon {
+.inputText-icon {
   position: absolute;
   right: 0;
   top: 0;
