@@ -40,10 +40,10 @@
     "focus-visible": "^4.1.5"
   },
   "devDependencies": {
-    "@alaskaairux/orion-web-core-style-sheets": "^2.6.7",
     "@alaskaairux/orion-design-tokens": "^2.7.0",
     "@alaskaairux/orion-icons": "^1.6.2",
-    "@commitlint/cli": "^7.6.1",
+    "@alaskaairux/orion-web-core-style-sheets": "^2.6.7",
+    "@commitlint/cli": "^8.3.3",
     "@commitlint/config-conventional": "^7.6.0",
     "@polymer/iron-demo-helpers": "^3.1.0",
     "@polymer/iron-icons": "^3.0.1",
@@ -101,6 +101,7 @@
     "stylefluxCanonical": "styleflux -o ./altImports/canonical/*.css",
     "stylefluxVariable": "styleflux -o ./altImports/variable/*.css",
     "sweep": "rm -rf ./altImports ./temp ./demo/css ./demo/fonts ./dist ./src/tokens | rm ./demo/sass/*token*.scss ./src/*.css ./src/*-css.js",
+    "yamltest": "yamllint .travis.yml",
     "test": "npm-run-all cssLint jsonLint yamltest",
     "processSrc": "gulp processSrc",
     "processImportsCanonical": "gulp processImportsCanonical",
