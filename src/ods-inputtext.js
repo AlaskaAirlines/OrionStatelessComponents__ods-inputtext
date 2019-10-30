@@ -11,54 +11,50 @@ import componentProperties from "./tokens/componentShapeProperties-css.js";
 import styleCss from "./style-css.js";
 import iconProperties from '@alaskaairux/orion-icons/dist/tokens/CSSTokenProperties-css.js';
 import closelg from '@alaskaairux/orion-icons/dist/icons/closelg_es6.js';
+import alert from '@alaskaairux/orion-icons/dist/icons/alert_es6.js';
 
 class OdsInputText extends LitElement {
   constructor() {
     super();
-    this.dom = new DOMParser().parseFromString(closelg.svg, 'text/html');
-    this.closesvg = this.dom.body.firstChild;
+    this.closeSvg = this.getIconAsHtml(closelg);
+    this.alertSvg = this.getIconAsHtml(alert);
   }
 
-  connectedCallback() {
-    super.connectedCallback()
-    this.inputClasses = { "inputText": true, "inputText--filled": this.value !== undefined };
-  }  
+  getIconAsHtml(icon) {
+    let dom = new DOMParser().parseFromString(icon.svg, 'text/html');
+    return dom.body.firstChild;
+  }
 
   static get properties() {
     return {
       value: { type: String },
+      error: { type: String }
     };
   }
 
   handleClickClear() {
     this.shadowRoot.getElementById('input-element').value = "";
     this.value = "";
-    this.updateFilledClass(false);
   }
 
   handleInput(e) {
     this.value = e.target.value;    
   }
 
-  handleChange(e) {
-    let isFilled = !!e.target.value;
-    this.updateFilledClass(isFilled);
-  }
-
-  updateFilledClass(isFilled) {
-    this.inputClasses = { ...this.inputClasses, "inputText--filled": isFilled };      
-    this.requestUpdate();
-  }
-
   render() {
+    this.inputClasses = { 
+      "inputText": true, 
+      "inputText--filled": this.value,
+      "error": this.error
+    };
+
     return html`
       ${componentProperties}
       ${styleCss}
       ${iconProperties}
 
       <input 
-        @input="${this.handleInput}" 
-        @change="${this.handleChange}"
+        @input="${this.handleInput}"
         value="${this.value}" 
         id="input-element" 
         type="text" 
@@ -66,14 +62,22 @@ class OdsInputText extends LitElement {
         class="${classMap(this.inputClasses)}" 
       />
       
-      <label class="inputText-label">The label:</label>
-      <label class="inputText-helpText">Help text</label>
+      <label class="inputText-label">The label:</label>      
 
-      <button
-        @click="${this.handleClickClear}"
-        class="inputText-icon">
-        ${this.closesvg}
-      </button>
+      ${this.error ? 
+        html`
+          <p class="inputText-errorText">${this.error}</p>
+          <div class="inputText-icon alertIcon">
+            ${this.alertSvg}
+          </div>` :
+        html`
+          <p class="inputText-helpText">Help text</p>
+          <button
+            @click="${this.handleClickClear}"
+            class="inputText-icon iconButton">
+            ${this.closeSvg}
+          </button>`        
+      }
     `;
   }
 }
