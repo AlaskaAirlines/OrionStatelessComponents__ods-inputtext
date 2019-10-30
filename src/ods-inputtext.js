@@ -21,22 +21,26 @@ class OdsInputtext extends LitElement {
   // function to define props used within the scope of thie component
   static get properties() {
     return {
-      cssClass: { type: String },
+      value: { type: String },
     };
   }
 
-  handleClickClear(e) {
+  handleClickClear() {
     this.shadowRoot.getElementById('input-element').value = "";
+    this.value = "";
   }
 
-  // function that renders the HTML and CSS into  the scope of the component
+  handleInput(e) {
+    this.value = e.target.value;    
+  }
+
   render() {
     return html`
       ${componentProperties}
       ${styleCss}
       ${iconProperties}
 
-      <input id="input-element" type="text" required class="ods-inputText" />
+      <input @input="${this.handleInput}" value="${this.value}" id="input-element" type="text" required class="ods-inputText" />
       
       <label class="ods-inputText--label">The label:</label>
       <label class="ods-inputText--helpText">Help text</label>
