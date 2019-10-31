@@ -19,7 +19,7 @@ class OdsInputText extends LitElement {
     this.closeSvg = this.getIconAsHtml(closelg);
     this.alertSvg = this.getIconAsHtml(alert);
     this.label = "Input Label";
-    this.isValid = true;
+    this.value = "";
   }
 
   static get properties() {
@@ -29,8 +29,17 @@ class OdsInputText extends LitElement {
       label: { type: String },
       helpText: { type: String },
       error: { type: String },
-      isValid: { type: Boolean },
+      isValid: { type: Boolean }
     };
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    this.isValid = !this.error;
+  }
+
+  firstUpdated() {
+    this.inputElement = this.shadowRoot.getElementById('input-element');
   }
 
   getIconAsHtml(icon) {
@@ -39,25 +48,31 @@ class OdsInputText extends LitElement {
   }
 
   handleClickClear() {
-    this.shadowRoot.getElementById('input-element').value = "";
+    this.inputElement.value = "";
     this.value = "";
+
+    this.validate();
   }
 
   handleInput(e) {
     this.value = e.target.value;
+
+    this.validate();
   }
 
-  validate(e) {
-    const input = e.target
-
-    if (!input.checkValidity()) {
-      this.internalError = input.validationMessage;
-      this.isValid = false;
-    } else {
-      this.internalError = null
-      this.isValid = true;
+  validate() {
+    /*
+     * If the error property is set, then the error message should persist
+     * and take precedence over client side validation
+     */  
+    if (this.error) {
+      return;
     }
+
+    this.isValid = this.inputElement.checkValidity();
+    this.internalError = this.isValid ? null : this.inputElement.validationMessage;
   }
+
 
   render() {
     this.inputClasses = {
@@ -86,7 +101,7 @@ class OdsInputText extends LitElement {
         html`<label class="inputText-label">${this.label} (optional)</label>`
       }
 
-      ${!this.isValid?
+      ${!this.isValid ?
         html`
           <p class="inputText-errorText">${this.error || this.internalError}</p>
           <div class="inputText-icon alertIcon">
