@@ -60,6 +60,10 @@
   &.error {
     border-color: var(--color-base-chili);
   }
+
+  &:invalid {
+    box-shadow: none;
+  }
 }
 
 .inputText-label {

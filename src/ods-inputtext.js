@@ -18,21 +18,24 @@ class OdsInputText extends LitElement {
     super();
     this.closeSvg = this.getIconAsHtml(closelg);
     this.alertSvg = this.getIconAsHtml(alert);
-  }
-
-  getIconAsHtml(icon) {
-    let dom = new DOMParser().parseFromString(icon.svg, 'text/html');
-    return dom.body.firstChild;
+    this.label = "Input Label";
+    this.isValid = true;
   }
 
   static get properties() {
     return {
       value: { type: String },
-      error: { type: String },
       required: { type: Boolean },
       label: { type: String },
-      helpText: { type: String }
+      helpText: { type: String },
+      error: { type: String },
+      isValid: { type: Boolean },
     };
+  }
+
+  getIconAsHtml(icon) {
+    let dom = new DOMParser().parseFromString(icon.svg, 'text/html');
+    return dom.body.firstChild;
   }
 
   handleClickClear() {
@@ -41,14 +44,26 @@ class OdsInputText extends LitElement {
   }
 
   handleInput(e) {
-    this.value = e.target.value;    
+    this.value = e.target.value;
+  }
+
+  validate(e) {
+    const input = e.target
+
+    if (!input.checkValidity()) {
+      this.internalError = input.validationMessage;
+      this.isValid = false;
+    } else {
+      this.internalError = null
+      this.isValid = true;
+    }
   }
 
   render() {
-    this.inputClasses = { 
-      "inputText": true, 
+    this.inputClasses = {
+      "inputText": true,
       "inputText--filled": this.value,
-      "error": this.error
+      "error": !this.isValid
     };
 
     return html`
@@ -58,6 +73,7 @@ class OdsInputText extends LitElement {
 
       <input 
         @input="${this.handleInput}"
+        @blur="${this.validate}"
         value="${this.value}" 
         id="input-element" 
         type="text" 
@@ -65,11 +81,14 @@ class OdsInputText extends LitElement {
         class="${classMap(this.inputClasses)}" 
       />
       
-      <label class="inputText-label">${this.label}</label>      
+      ${this.required ?
+        html`<label class="inputText-label">${this.label}</label>` :
+        html`<label class="inputText-label">${this.label} (optional)</label>`
+      }
 
-      ${this.error ? 
+      ${!this.isValid?
         html`
-          <p class="inputText-errorText">${this.error}</p>
+          <p class="inputText-errorText">${this.error || this.internalError}</p>
           <div class="inputText-icon alertIcon">
             ${this.alertSvg}
           </div>` :
@@ -80,7 +99,7 @@ class OdsInputText extends LitElement {
             @click="${this.handleClickClear}"
             class="inputText-icon iconButton">
             ${this.closeSvg}
-          </button>`        
+          </button>`
       }
     `;
   }
