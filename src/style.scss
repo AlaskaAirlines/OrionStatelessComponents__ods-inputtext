@@ -36,9 +36,12 @@
   width: 100%;
   font-size: var(--size-breakpoint-all-med);
 
-
   &:focus {
     border-color: var(--color-brand-blue-atlas-base);
+    & ~ .iconButton {
+      opacity: 1;
+      z-index: auto;
+    }
   }
 
   &:focus,
@@ -46,11 +49,6 @@
     & + .inputText-label {
       font-size: 0.75rem;
       padding: var(--size-scale-sml) 0;
-    }
-
-    & ~ .inputText-icon {
-      opacity: 1;
-      z-index: auto;
     }
   }
 
@@ -89,14 +87,6 @@
   right: 0;
   top: var(--size-scale-xl);
   padding: 0;
-
-  opacity: 0;
-  z-index: -1; 
-
-  &:focus {
-    opacity: 1;
-    z-index: auto;
-  }
 }
 
 .alertIcon {
@@ -106,4 +96,12 @@
 .iconButton {
   background: none;
   border: none;
+
+  opacity: 0;
+  z-index: -1; 
+
+  &:focus {
+    opacity: 1;
+    z-index: auto;
+  }
 }
