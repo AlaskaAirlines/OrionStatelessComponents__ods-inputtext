@@ -19,7 +19,6 @@ class OdsInputText extends LitElement {
     this.closeSvg = this.getIconAsHtml(closelg);
     this.alertSvg = this.getIconAsHtml(alert);
     this.label = "Input label";
-    this.value = "";
     this.allowedInputTypes = ["text", "email"];
   }
 
@@ -119,7 +118,7 @@ class OdsInputText extends LitElement {
       <input 
         @input="${this.handleInput}"
         @blur="${this.handleBlur}"
-        value="${this.value}" 
+        .value="${this.value}" 
         id="input-element" 
         type="${this.getInputType(this.type)}" 
         ?required="${this.required}" 
