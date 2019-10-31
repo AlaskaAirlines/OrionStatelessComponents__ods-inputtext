@@ -31,6 +31,7 @@ class OdsInputText extends LitElement {
       label: { type: String },
       type: { type: String },
       value: { type: String },
+      disabled: { type: Boolean },
       isValid: { type: Boolean },
       required: { type: Boolean }
     };
@@ -99,6 +100,10 @@ class OdsInputText extends LitElement {
     return this.internalError;
   }
 
+  getDisabledClass() {
+    return this.disabled ? "is-disabled" : "";
+  }
+
   render() {
     this.inputClasses = {
       "inputText": true,
@@ -119,11 +124,12 @@ class OdsInputText extends LitElement {
         type="${this.getInputType(this.type)}" 
         ?required="${this.required}" 
         class="${classMap(this.inputClasses)}" 
+        ?disabled="${this.disabled}"
       />
       
       ${this.required ?
-        html`<label class="inputText-label">${this.label}</label>` :
-        html`<label class="inputText-label">${this.label} (optional)</label>`
+        html`<label class="inputText-label ${this.getDisabledClass()}">${this.label}</label>` :
+        html`<label class="inputText-label ${this.getDisabledClass()}">${this.label} (optional)</label>`
       }
 
       ${!this.isValid ?
@@ -133,7 +139,7 @@ class OdsInputText extends LitElement {
             ${this.alertSvg}
           </div>` :
         html`
-          <p class="inputText-helpText">${this.helpText}</p>
+          <p class="inputText-helpText ${this.getDisabledClass()}">${this.helpText}</p>
           <button
             tabindex="-1"
             @click="${this.handleClickClear}"

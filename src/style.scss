@@ -61,6 +61,12 @@
     border-color: var(--color-base-chili);
   }
 
+  &:disabled {
+    background: none;
+    border-color: var(--color-type-disabled);
+    color: var(--color-type-disabled);
+  }
+
   &:invalid {
     box-shadow: none;
   }
@@ -112,4 +118,8 @@
   &:hover {
     cursor: pointer;
   }
+}
+
+.is-disabled {
+  color: var(--color-type-disabled);
 }
