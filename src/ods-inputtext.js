@@ -29,7 +29,9 @@ class OdsInputText extends LitElement {
     return {
       value: { type: String },
       error: { type: String },
-      required: { type: Boolean }
+      required: { type: Boolean },
+      label: { type: String },
+      helpText: { type: String }
     };
   }
 
@@ -63,7 +65,7 @@ class OdsInputText extends LitElement {
         class="${classMap(this.inputClasses)}" 
       />
       
-      <label class="inputText-label">The label:</label>      
+      <label class="inputText-label">${this.label}</label>      
 
       ${this.error ? 
         html`
@@ -72,7 +74,7 @@ class OdsInputText extends LitElement {
             ${this.alertSvg}
           </div>` :
         html`
-          <p class="inputText-helpText">Help text</p>
+          <p class="inputText-helpText">${this.helpText}</p>
           <button
             @click="${this.handleClickClear}"
             class="inputText-icon iconButton">
