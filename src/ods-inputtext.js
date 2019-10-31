@@ -18,18 +18,21 @@ class OdsInputText extends LitElement {
     super();
     this.closeSvg = this.getIconAsHtml(closelg);
     this.alertSvg = this.getIconAsHtml(alert);
-    this.label = "Input Label";
+    this.label = "Input label";
     this.value = "";
+    this.allowedInputTypes = ["text", "email"];
   }
 
   static get properties() {
     return {
-      value: { type: String },
-      required: { type: Boolean },
-      label: { type: String },
-      helpText: { type: String },
+      customValidationMessage: { type: String },
       error: { type: String },
-      isValid: { type: Boolean }
+      helpText: { type: String },
+      label: { type: String },
+      type: { type: String },
+      value: { type: String },
+      isValid: { type: Boolean },
+      required: { type: Boolean }
     };
   }
 
@@ -50,13 +53,19 @@ class OdsInputText extends LitElement {
   handleClickClear() {
     this.inputElement.value = "";
     this.value = "";
-
     this.validate();
   }
 
   handleInput(e) {
     this.value = e.target.value;
 
+    if (this.hasBlurred) {
+      this.validate();
+    }
+  }
+
+  handleBlur() {
+    this.hasBlurred = true;
     this.validate();
   }
 
@@ -73,6 +82,22 @@ class OdsInputText extends LitElement {
     this.internalError = this.isValid ? null : this.inputElement.validationMessage;
   }
 
+  getInputType(type) {
+    if (this.allowedInputTypes.includes(type)) {
+      return type;
+    }
+    return "text";
+  }
+
+  getErrorMessage() {
+    if (this.error) {
+      return this.error;
+    }
+    if (this.customValidationMessage) {
+      return this.customValidationMessage;
+    }
+    return this.internalError;
+  }
 
   render() {
     this.inputClasses = {
@@ -88,10 +113,10 @@ class OdsInputText extends LitElement {
 
       <input 
         @input="${this.handleInput}"
-        @blur="${this.validate}"
+        @blur="${this.handleBlur}"
         value="${this.value}" 
         id="input-element" 
-        type="text" 
+        type="${this.getInputType(this.type)}" 
         ?required="${this.required}" 
         class="${classMap(this.inputClasses)}" 
       />
@@ -103,7 +128,7 @@ class OdsInputText extends LitElement {
 
       ${!this.isValid ?
         html`
-          <p class="inputText-errorText">${this.error || this.internalError}</p>
+          <p class="inputText-errorText">${this.getErrorMessage()}</p>
           <div class="inputText-icon alertIcon">
             ${this.alertSvg}
           </div>` :
