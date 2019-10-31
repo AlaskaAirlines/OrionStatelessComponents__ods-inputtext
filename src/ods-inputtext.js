@@ -76,6 +76,7 @@ class OdsInputText extends LitElement {
         html`
           <p class="inputText-helpText">${this.helpText}</p>
           <button
+            tabindex="-1"
             @click="${this.handleClickClear}"
             class="inputText-icon iconButton">
             ${this.closeSvg}
