@@ -68,7 +68,23 @@
 
       <demo-snippet>
         <template>
-          <ods-inputtext type="color" value="test" label="First name" helptext="Enter your first name" error="Not a real name" required></ods-inputtext>
+          <ods-inputtext type="email" label="First name" helptext="Enter your first name - light dom" lightDom required></ods-inputtext>
+        </template>
+      </demo-snippet>
+
+      <demo-snippet>
+        <template>
+          <ods-inputtext
+            type="color"
+            value="test"
+            label="First name"
+            helptext="Enter your first name"
+            error="Not a real name"
+            id="sample-input-id"
+            name="FirstNameInput"
+            required
+            >
+          </ods-inputtext>
         </template>
       </demo-snippet>
 

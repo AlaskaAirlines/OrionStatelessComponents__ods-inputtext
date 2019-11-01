@@ -5,6 +5,7 @@
 
 import { LitElement, html } from "lit-element";
 import { classMap } from 'lit-html/directives/class-map.js';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 import "focus-visible/dist/focus-visible.min.js";
 import componentProperties from "./tokens/componentShapeProperties-css.js";
@@ -16,24 +17,36 @@ import alert from '@alaskaairux/orion-icons/dist/icons/alert_es6.js';
 class OdsInputText extends LitElement {
   constructor() {
     super();
+
     this.closeSvg = this.getIconAsHtml(closelg);
     this.alertSvg = this.getIconAsHtml(alert);
-    this.label = "Input label";
+
     this.allowedInputTypes = ["text", "email"];
+
+    // Default property values
+    this.id = "input-element";
+    this.label = "Input label";
   }
 
   static get properties() {
     return {
       customValidationMessage: { type: String },
-      error: { type: String },
+      error:    { type: String },
       helpText: { type: String },
-      label: { type: String },
-      type: { type: String },
-      value: { type: String },
+      id:       { type: String },
+      label:    { type: String },
+      name:     { type: String },
+      type:     { type: String },
+      value:    { type: String },
       disabled: { type: Boolean },
-      isValid: { type: Boolean },
+      isValid:  { type: Boolean },
+      lightDom: { type: Boolean },
       required: { type: Boolean }
     };
+  }
+
+  createRenderRoot() {
+    return this.lightDom ? this : super.createRenderRoot();
   }
 
   connectedCallback() {
@@ -42,7 +55,7 @@ class OdsInputText extends LitElement {
   }
 
   firstUpdated() {
-    this.inputElement = this.shadowRoot.getElementById('input-element');
+    this.inputElement = this.shadowRoot.getElementById(this.id);
   }
 
   getIconAsHtml(icon) {
@@ -118,27 +131,28 @@ class OdsInputText extends LitElement {
       <input 
         @input="${this.handleInput}"
         @blur="${this.handleBlur}"
-        .value="${this.value}" 
-        id="input-element" 
-        type="${this.getInputType(this.type)}" 
-        ?required="${this.required}" 
-        class="${classMap(this.inputClasses)}" 
+        class="${classMap(this.inputClasses)}"
+        id="${this.id}"
+        name="${ifDefined(this.name ? this.name : undefined)}"
+        type="${this.getInputType(this.type)}"
+        ?required="${this.required}"
         ?disabled="${this.disabled}"
+        .value="${ifDefined(this.value ? this.value : undefined)}"
       />
       
       ${this.required ?
-        html`<label class="inputText-label ${this.getDisabledClass()}">${this.label}</label>` :
-        html`<label class="inputText-label ${this.getDisabledClass()}">${this.label} (optional)</label>`
+        html`<label for=${this.id} class="inputText-label ${this.getDisabledClass()}">${this.label}</label>` :
+        html`<label for=${this.id} class="inputText-label ${this.getDisabledClass()}">${this.label} (optional)</label>`
       }
 
       ${!this.isValid ?
         html`
-          <p class="inputText-errorText">${this.getErrorMessage()}</p>
+          <p class="inputText-errorText" aria-live="polite">${this.getErrorMessage()}</p>
           <div class="inputText-icon alertIcon">
             ${this.alertSvg}
           </div>` :
         html`
-          <p class="inputText-helpText ${this.getDisabledClass()}">${this.helpText}</p>
+          <p class="inputText-helpText ${this.getDisabledClass()}" aria-live="polite">${this.helpText}</p>
           <button
             tabindex="-1"
             @click="${this.handleClickClear}"
