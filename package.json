@@ -45,6 +45,8 @@
     "@alaskaairux/orion-web-core-style-sheets": "^2.6.7",
     "@commitlint/cli": "^8.3.3",
     "@commitlint/config-conventional": "^7.6.0",
+    "@open-wc/testing": "^2.3.8",
+    "@open-wc/testing-karma": "^3.1.48",
     "@polymer/iron-demo-helpers": "^3.1.0",
     "@polymer/iron-icons": "^3.0.1",
     "@polymer/polymer": "^3.2.0",
@@ -80,6 +82,7 @@
     "stylelint-config-standard": "^18.3.0",
     "wc-sass-render": "^1.2.1",
     "wct-mocha": "^1.0.1",
+    "webpack-merge": "^4.2.2",
     "yaml-lint": "^1.2.4"
   },
   "watch": {
@@ -102,7 +105,13 @@
     "stylefluxVariable": "styleflux -o ./altImports/variable/style.css",
     "sweep": "rm -rf ./altImports ./temp ./demo/css ./demo/fonts ./dist ./src/tokens | rm ./demo/sass/*token*.scss ./src/*.css ./src/*-css.js",
     "yamltest": "yamllint .travis.yml",
-    "test": "npm-run-all cssLint jsonLint yamltest",
+    "lint": "npm-run-all cssLint jsonLint yamltest",
+    "test": "karma start --coverage",
+    "test:watch": "karma start --auto-watch=true --single-run=false",
+    "test:update-snapshots": "karma start --update-snapshots",
+    "test:prune-snapshots": "karma start --prune-snapshots",
+    "test:compatibility": "karma start --compatibility all --coverage",
+    "test:compatibility:watch": "karma start --compatibility all --auto-watch=true --single-run=false",
     "processSrc": "gulp processSrc",
     "processImportsCanonical": "gulp processImportsCanonical",
     "processImportsVariable": "gulp processImportsVariable",
@@ -112,7 +121,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test",
+      "pre-commit": "npm run lint",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
