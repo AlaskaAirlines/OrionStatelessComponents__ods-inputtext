@@ -16,18 +16,6 @@ module.exports = config => {
 
             esm: {
                 nodeResolve: true,
-            },
-
-            // you can overwrite/extend the config further
-            coverageIstanbulReporter: {
-                thresholds: {
-                    global: {
-                        statements: 50,
-                        branches: 40,
-                        functions: 50,
-                        lines: 50
-                    },
-                }
             }
         }),
     );

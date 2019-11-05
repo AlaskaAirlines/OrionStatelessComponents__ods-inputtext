@@ -13,6 +13,7 @@
       import '@polymer/iron-demo-helpers/demo-snippet';
     </script>
     <script type="module" src="../src/ods-inputtext.js"></script>
+    <script type="module" src="../src/ods-inputtext-light.js"></script>
     <script src="../demo/alert.js"></script>
     <script type="module">
       import '../node_modules/@polymer/iron-icons/hardware-icons.js';
@@ -62,26 +63,9 @@
 
       <demo-snippet>
         <template>
-          <ods-inputtext disabled value="disabled" type="email" label="First name" helptext="Enter your first name" required></ods-inputtext>
-        </template>
-      </demo-snippet>
-
-      <demo-snippet>
-        <template>
-          <ods-inputtext type="email" label="First name" helptext="Enter your first name - light dom" lightDom required></ods-inputtext>
-        </template>
-      </demo-snippet>
-
-      <demo-snippet>
-        <template>
           <ods-inputtext
-            type="color"
-            value="test"
             label="First name"
             helptext="Enter your first name"
-            error="Not a real name"
-            id="sample-input-id"
-            name="FirstNameInput"
             required
             >
           </ods-inputtext>
@@ -91,7 +75,31 @@
       <demo-snippet>
         <template>
           <ods-inputtext
-            value="test"
+            value="Test"
+            label="First name"
+            helptext="Enter your first name"
+            required
+            >
+          </ods-inputtext>
+        </template>
+      </demo-snippet>
+
+      <demo-snippet>
+        <template>
+          <ods-inputtext
+            type="email"
+            value="dale@alaskaair.com"
+            label="Email"
+            helptext="Enter your email"
+            >
+          </ods-inputtext>
+        </template>
+      </demo-snippet>
+
+      <demo-snippet>
+        <template>
+          <ods-inputtext
+            value="Invalid input"
             helptext="Enter your first name"
             error="Not a real name"
             required>
@@ -99,6 +107,25 @@
         </template>
       </demo-snippet>
 
+      <demo-snippet>
+        <template>
+          <ods-inputtext 
+            disabled 
+            value="disabled" 
+            type="email" 
+            label="First name" 
+            helptext="Enter your first name" 
+            required>
+          </ods-inputtext>
+        </template>
+      </demo-snippet>
+
+      <demo-snippet>
+        <template>
+          <ods-inputtext-light type="email" label="First name" helptext="Enter your first name - light dom" required></ods-inputtext>
+        </template>
+      </demo-snippet>
+      
       <h2>Element &#60;ods-inputtext&#62;</h2>
 
       <pre><code>class OdsInputtext extends LitElement</code></pre>

@@ -14,7 +14,7 @@ import iconProperties from '@alaskaairux/orion-icons/dist/tokens/CSSTokenPropert
 import closelg from '@alaskaairux/orion-icons/dist/icons/closelg_es6.js';
 import alert from '@alaskaairux/orion-icons/dist/icons/alert_es6.js';
 
-class OdsInputText extends LitElement {
+export default class OdsInputText extends LitElement {
   constructor() {
     super();
 
@@ -31,22 +31,17 @@ class OdsInputText extends LitElement {
   static get properties() {
     return {
       customValidationMessage: { type: String },
-      error:    { type: String },
-      helpText: { type: String },
-      id:       { type: String },
-      label:    { type: String },
-      name:     { type: String },
-      type:     { type: String },
-      value:    { type: String },
-      disabled: { type: Boolean },
-      isValid:  { type: Boolean },
-      lightDom: { type: Boolean },
-      required: { type: Boolean }
+      error:                   { type: String },
+      helpText:                { type: String },
+      id:                      { type: String },
+      label:                   { type: String },
+      name:                    { type: String },
+      type:                    { type: String },
+      value:                   { type: String },
+      disabled:                { type: Boolean },
+      isValid:                 { type: Boolean },
+      required:                { type: Boolean }
     };
-  }
-
-  createRenderRoot() {
-    return this.lightDom ? this : super.createRenderRoot();
   }
 
   connectedCallback() {
@@ -55,7 +50,7 @@ class OdsInputText extends LitElement {
   }
 
   firstUpdated() {
-    this.inputElement = this.shadowRoot.getElementById(this.id);
+    this.inputElement = this.renderRoot.querySelector('input');
   }
 
   getIconAsHtml(icon) {
@@ -133,11 +128,11 @@ class OdsInputText extends LitElement {
         @blur="${this.handleBlur}"
         class="${classMap(this.inputClasses)}"
         id="${this.id}"
-        name="${ifDefined(this.name ? this.name : undefined)}"
+        name="${ifDefined(this.name)}"
         type="${this.getInputType(this.type)}"
         ?required="${this.required}"
         ?disabled="${this.disabled}"
-        .value="${ifDefined(this.value ? this.value : undefined)}"
+        .value="${ifDefined(this.value)}"
       />
       
       ${this.required ?
@@ -154,9 +149,10 @@ class OdsInputText extends LitElement {
         html`
           <p class="inputText-helpText ${this.getDisabledClass()}" aria-live="polite">${this.helpText}</p>
           <button
-            tabindex="-1"
             @click="${this.handleClickClear}"
-            class="inputText-icon iconButton">
+            aria-hidden="true"
+            class="inputText-icon iconButton"
+            tabindex="-1">
             ${this.closeSvg}
           </button>`
       }
