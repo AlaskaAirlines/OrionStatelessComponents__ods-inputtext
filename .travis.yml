@@ -24,6 +24,9 @@ before_script:
   - npm run sassRender
   - npm run distJS
 
+script:
+  - npm run test:ci
+
 after_success:
   - npx semantic-release
 

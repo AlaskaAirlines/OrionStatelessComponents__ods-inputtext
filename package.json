@@ -106,6 +106,7 @@
     "test": "karma start --coverage",
     "test:debug": "karma start --no-single-run --auto-watch=true",
     "test:watch": "karma start --auto-watch=true --single-run=false",
+    "test:ci": "karma start --coverage --browsers ChromeHeadless",
     "processSrc": "gulp processSrc",
     "processImportsCanonical": "gulp processImportsCanonical",
     "processImportsVariable": "gulp processImportsVariable",
