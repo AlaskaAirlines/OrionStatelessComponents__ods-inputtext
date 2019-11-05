@@ -50,18 +50,6 @@ import "@alaskaairux/ods-inputtext";
 <ods-inputtext>Hello World</ods-inputtext>
 ```
 
-## Styling (experimental)
-
-Option(s) for component customization.
-
-[Place relative content here if ::part() is to be considered for support]
-
-| Selector | Type | State | Description |
-|----|----|----|---|
-| ::part() | pseudo-element | experimental | Update shadowDOM CSS from outside the component |
-
-See [caniuse.com](https://caniuse.com/#search=%3A%3Apart) for more information.
-
 ## inputtext use cases
 
 The \<ods-inputtext> element should be used in situations where users may:
@@ -74,7 +62,16 @@ The \<ods-inputtext> element should be used in situations where users may:
 
 | Attribute | Value type | Description |
 |----|----|----|
-| attr | string, boolean, function | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. |
+| customValidationMessage | string | Overrides the browser validation message when the input is invalid.  |
+| error | string | Sets a persistent error message (e.g. an error message returned from the server). |
+| helpText | string | Sets the help text displayed below the input. |
+| label | string | Sets the label text for the input. |
+| name | string | Populates the `name` attribute on the input. |
+| type | string | Populates the `type` attribute on the input. Allowed values are `email` or `text`. If given value is not allowed or set, defaults to `text`. |
+| value | string | Populates the `value` attribute on the input. Can also be read to retrieve the current value of the input. |
+| disabled | boolean | If set, disables the input. |
+| isValid | boolean | Can be accessed to determine if the input is in an error state or not. |
+| required | boolean | Populates the `required` attribute on the input. Used for client-side validation. |
 
 ## API Code Examples
 
@@ -82,16 +79,6 @@ Default inputtext
 
 ```html
 <ods-inputtext>Hello World</ods-inputtext>
-```
-
-### [React] Custom callbacks
-
-[The following is suggested content. If there is any special consideration for callback support with React or other development environments, please upate.]
-
-inputtext(React support) with `ref` for passing in an event, [see notes](https://github.com/AlaskaAirlines/OrionStatelessComponents__docs/blob/master/docs/CALLBACK.md).
-
-```html
-<ods-inputtext ref={this.event}>hello world</ods-inputtext>
 ```
 
 ## Alternate build solutions
