@@ -1,0 +1,393 @@
+
+{
+  "header": {
+    "reportVersion": 1,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20191104.153817.12916.0.001.json",
+    "dumpEventTime": "2019-11-04T15:38:17Z",
+    "dumpEventTimeStamp": "1572910697298",
+    "processId": 12916,
+    "cwd": "D:\\Git\\ods-inputtext",
+    "commandLine": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\grich\\AppData\\Roaming\\npm/node_modules/gulp/bin/gulp.js",
+      "dev"
+    ],
+    "nodejsVersion": "v12.13.0",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "win32",
+    "componentVersions": {
+      "node": "12.13.0",
+      "v8": "7.7.299.13-node.12",
+      "uv": "1.32.0",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.39.2",
+      "napi": "5",
+      "llhttp": "1.1.4",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1d",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019a",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "lts": "Erbium",
+      "headersUrl": "https://nodejs.org/download/release/v12.13.0/node-v12.13.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.13.0/node-v12.13.0.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v12.13.0/win-x64/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "6.1.7601",
+    "osVersion": "Windows 7 Enterprise Service Pack 1",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "Intel(R) Core(TM) i7-6600U CPU @ 2.60GHz",
+        "speed": 2808,
+        "user": 3013689,
+        "nice": 0,
+        "sys": 2799500,
+        "idle": 16487527,
+        "irq": 590354
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-6600U CPU @ 2.60GHz",
+        "speed": 2808,
+        "user": 1879453,
+        "nice": 0,
+        "sys": 2965423,
+        "idle": 17455544,
+        "irq": 1346881
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-6600U CPU @ 2.60GHz",
+        "speed": 2808,
+        "user": 3571752,
+        "nice": 0,
+        "sys": 2782964,
+        "idle": 15945579,
+        "irq": 191460
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-6600U CPU @ 2.60GHz",
+        "speed": 2808,
+        "user": 1266072,
+        "nice": 0,
+        "sys": 977642,
+        "idle": 20056455,
+        "irq": 167779
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "Wireless Network Connection",
+        "internal": false,
+        "mac": "b4:6b:fc:58:49:a4",
+        "address": "10.21.9.85",
+        "netmask": "255.255.248.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "family": "IPv4"
+      }
+    ],
+    "host": "SEAEXGRICH2"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x000000013f8b1389",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+10873"
+    },
+    {
+      "pc": "0x000000013f8b57cc",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+28348"
+    },
+    {
+      "pc": "0x000000013f8b4778",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+24168"
+    },
+    {
+      "pc": "0x000000013f9a332b",
+      "symbol": "v8::base::CPU::has_sse+37723"
+    },
+    {
+      "pc": "0x00000001401a6f4e",
+      "symbol": "v8::Isolate::ReportExternalAllocationLimitReached+94"
+    },
+    {
+      "pc": "0x000000014018ef91",
+      "symbol": "v8::SharedArrayBuffer::Externalize+833"
+    },
+    {
+      "pc": "0x000000014005c85c",
+      "symbol": "v8::internal::Heap::EphemeronKeyWriteBarrierFromCode+1436"
+    },
+    {
+      "pc": "0x0000000140067c00",
+      "symbol": "v8::internal::Heap::ProtectUnprotectedMemoryChunks+1312"
+    },
+    {
+      "pc": "0x0000000140064734",
+      "symbol": "v8::internal::Heap::PageFlagsAreConsistent+3204"
+    },
+    {
+      "pc": "0x0000000140059fc3",
+      "symbol": "v8::internal::Heap::CollectGarbage+1283"
+    },
+    {
+      "pc": "0x0000000140058794",
+      "symbol": "v8::internal::Heap::AddRetainedMap+2356"
+    },
+    {
+      "pc": "0x0000000140079a65",
+      "symbol": "v8::internal::Factory::NewFillerObject+53"
+    },
+    {
+      "pc": "0x000000013fde6239",
+      "symbol": "v8::internal::interpreter::JumpTableTargetOffsets::iterator::operator=+4057"
+    },
+    {
+      "pc": "0x00000001405d2c6d",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+567949"
+    },
+    {
+      "pc": "0x0000000140551dd3",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+39923"
+    },
+    {
+      "pc": "0x000002f4da703140",
+      "symbol": ""
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 2158534656,
+    "totalCommittedMemory": 2158534656,
+    "usedMemory": 2143973120,
+    "availableMemory": 50501736,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 262144,
+        "capacity": 261872,
+        "used": 32296,
+        "available": 229576
+      },
+      "new_space": {
+        "memorySize": 8388608,
+        "committedMemory": 8388608,
+        "capacity": 4189952,
+        "used": 1175584,
+        "available": 3014368
+      },
+      "old_space": {
+        "memorySize": 2026483712,
+        "committedMemory": 2026483712,
+        "capacity": 2024095848,
+        "used": 2020308648,
+        "available": 3787200
+      },
+      "code_space": {
+        "memorySize": 1212416,
+        "committedMemory": 1212416,
+        "capacity": 846368,
+        "used": 846368,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 1314816,
+        "committedMemory": 1314816,
+        "capacity": 822560,
+        "used": 822560,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 120823808,
+        "committedMemory": 120823808,
+        "capacity": 120784112,
+        "used": 120784112,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 49152,
+        "committedMemory": 49152,
+        "capacity": 3552,
+        "used": 3552,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 4189952,
+        "used": 0,
+        "available": 4189952
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 203.955,
+    "kernelCpuSeconds": 133.053,
+    "cpuConsumptionPercent": 9.33282,
+    "maxRss": 5015396352,
+    "pageFaults": {
+      "IORequired": 1730064,
+      "IONotRequired": 0
+    },
+    "fsActivity": {
+      "reads": 2327,
+      "writes": 51
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "AIRGROUP_APP_ROOT": "D:\\AIRGROUP\\APP",
+    "AIRGROUP_DATA_ROOT": "D:\\AIRGROUP\\DATA",
+    "AIRGROUP_DEPLOY_TYPE": "DEV",
+    "AIRGROUP_LOG_ROOT": "D:\\AIRGROUP\\LOG",
+    "AIRGROUP_WEB_ROOT": "D:\\SITES",
+    "ALLUSERSPROFILE": "C:\\ProgramData",
+    "APPDATA": "C:\\Users\\grich\\AppData\\Roaming",
+    "CHASSIS": "Notebook",
+    "COLORTERM": "truecolor",
+    "COMMONPROGRAMFILES": "C:\\Program Files\\Common Files",
+    "COMPUTERNAME": "SEAEXGRICH2",
+    "COMSPEC": "C:\\windows\\system32\\cmd.exe",
+    "ChocolateyInstall": "C:\\ProgramData\\chocolatey",
+    "ChocolateyLastPathUpdate": "Fri Jun 15 15:41:31 2018",
+    "CommonProgramFiles(x86)": "C:\\Program Files (x86)\\Common Files",
+    "CommonProgramW6432": "C:\\Program Files\\Common Files",
+    "EXEPATH": "C:\\Program Files\\Git\\bin",
+    "FP_NO_HOST_CHECK": "NO",
+    "HOME": "C:\\Users\\grich",
+    "HOMEDRIVE": "C:",
+    "HOMEPATH": "\\Users\\grich",
+    "INIT_CWD": "D:\\Git\\ods-inputtext",
+    "LANG": "en_US.UTF-8",
+    "LOCALAPPDATA": "C:\\Users\\grich\\AppData\\Local",
+    "LOGONSERVER": "\\\\IGQPRDC01",
+    "MODEL": "7480",
+    "MSYSTEM": "MINGW64",
+    "NUMBER_OF_PROCESSORS": "4",
+    "OS": "Windows_NT",
+    "OneDrive": "C:\\Users\\grich\\OneDrive - Alaska Airlines, Inc",
+    "OneDriveCommercial": "C:\\Users\\grich\\OneDrive - Alaska Airlines, Inc",
+    "PATH": "C:\\Program Files\\Git\\mingw64\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Users\\grich\\bin;C:\\Python27;C:\\Python27\\Scripts;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0;C:\\windows\\System32\\WindowsPowerShell\\v1.0;C:\\Program Files\\Git\\cmd;C:\\Program Files\\dotnet;C:\\Program Files (x86)\\GitExtensions;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn;C:\\Program Files\\Microsoft\\Web Platform Installer;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn;D:\\Tools\\nant-0.92\\bin;D:\\Tools\\NUnit-2.6.4\\bin;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\Microsoft Service Fabric\\bin\\Fabric\\Fabric.Code;C:\\Program Files\\Microsoft SDKs\\Service Fabric\\Tools\\ServiceFabricLocalClusterManager;C:\\Program Files\\Microsoft VS Code\\bin;C:\\Program Files\\SQL Operations Studio\\bin;C:\\Program Files (x86)\\Yarn\\bin;C:\\windows\\System32\\WindowsPowerShell\\v1.0;C:\\Program Files\\nodejs;C:\\Program Files\\Microsoft VS Code\\bin;D:\\Tools\\nant-0.92\\bin;D:\\Tools\\NUnit-2.6.4\\bin;C:\\Users\\grich\\AppData\\Local\\Programs\\Python\\Python37-32;C:\\Program Files (x86)\\GnuWin32\\bin;C:\\Users\\grich\\AppData\\Local\\Programs\\Fiddler;C:\\Program Files\\SQL Operations Studio\\bin;C:\\Program Files\\SQL Operations Studio\\bin;C:\\Users\\grich\\AppData\\Local\\Yarn\\bin;C:\\Users\\grich\\AppData\\Roaming\\npm",
+    "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC",
+    "PLINK_PROTOCOL": "ssh",
+    "PROCESSOR_ARCHITECTURE": "AMD64",
+    "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 78 Stepping 3, GenuineIntel",
+    "PROCESSOR_LEVEL": "6",
+    "PROCESSOR_REVISION": "4e03",
+    "PROGRAMFILES": "C:\\Program Files",
+    "PSModulePath": "C:\\Program Files\\WindowsPowerShell\\Modules;C:\\windows\\system32\\WindowsPowerShell\\v1.0\\Modules",
+    "PUBLIC": "C:\\Users\\Public",
+    "PWD": "D:/Git/ods-inputtext",
+    "ProgramData": "C:\\ProgramData",
+    "ProgramFiles(x86)": "C:\\Program Files (x86)",
+    "ProgramW6432": "C:\\Program Files",
+    "SERIAL": "2H45SN2",
+    "SERVER_FARM": "ASCOM",
+    "SESSIONNAME": "Console",
+    "SHLVL": "2",
+    "SYSTEMDRIVE": "C:",
+    "SYSTEMROOT": "C:\\windows",
+    "TEMP": "C:\\Users\\grich\\AppData\\Local\\Temp",
+    "TERM": "cygwin",
+    "TERM_PROGRAM": "vscode",
+    "TERM_PROGRAM_VERSION": "1.39.2",
+    "TMP": "C:\\Users\\grich\\AppData\\Local\\Temp",
+    "TYPE": "LATITUDE",
+    "USERDNSDOMAIN": "AIRGROUP.ALASKAAIR.COM",
+    "USERDOMAIN": "AIRGROUP",
+    "USERDOMAIN_ROAMINGPROFILE": "AIRGROUP",
+    "USERNAME": "grich",
+    "USERPROFILE": "C:\\Users\\grich",
+    "VS140COMNTOOLS": "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Common7\\Tools\\",
+    "WINDIR": "C:\\windows",
+    "_": "C:/Program Files/nodejs/node",
+    "deployment.expiration.check.enabled": "false",
+    "windows_tracing_flags": "3",
+    "windows_tracing_logfile": "C:\\BVTBin\\Tests\\installpackage\\csilogfile.log"
+  },
+  "sharedObjects": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\windows\\SYSTEM32\\ntdll.dll",
+    "C:\\Program Files\\Cylance\\Desktop\\CyMemDef64.dll",
+    "C:\\windows\\system32\\kernel32.dll",
+    "C:\\windows\\system32\\KERNELBASE.dll",
+    "C:\\windows\\system32\\dbghelp.dll",
+    "C:\\windows\\system32\\msvcrt.dll",
+    "C:\\windows\\system32\\WS2_32.dll",
+    "C:\\windows\\system32\\RPCRT4.dll",
+    "C:\\windows\\system32\\NSI.dll",
+    "C:\\windows\\system32\\ADVAPI32.dll",
+    "C:\\windows\\SYSTEM32\\sechost.dll",
+    "C:\\windows\\system32\\USER32.dll",
+    "C:\\windows\\system32\\GDI32.dll",
+    "C:\\windows\\system32\\LPK.dll",
+    "C:\\windows\\system32\\USP10.dll",
+    "C:\\windows\\system32\\IPHLPAPI.DLL",
+    "C:\\windows\\system32\\WINNSI.DLL",
+    "C:\\windows\\system32\\PSAPI.DLL",
+    "C:\\windows\\system32\\USERENV.dll",
+    "C:\\windows\\system32\\profapi.dll",
+    "C:\\windows\\system32\\CRYPT32.dll",
+    "C:\\windows\\system32\\MSASN1.dll",
+    "C:\\windows\\system32\\bcrypt.dll",
+    "C:\\windows\\system32\\WINMM.dll",
+    "C:\\windows\\system32\\IMM32.DLL",
+    "C:\\windows\\system32\\MSCTF.dll",
+    "C:\\windows\\system32\\PGPmapih.dll",
+    "C:\\windows\\system32\\api-ms-win-core-synch-l1-2-0.DLL",
+    "C:\\windows\\system32\\powrprof.dll",
+    "C:\\windows\\system32\\SETUPAPI.dll",
+    "C:\\windows\\system32\\CFGMGR32.dll",
+    "C:\\windows\\system32\\OLEAUT32.dll",
+    "C:\\windows\\system32\\ole32.dll",
+    "C:\\windows\\system32\\DEVOBJ.dll",
+    "C:\\windows\\system32\\PGPlsp.dll",
+    "C:\\windows\\system32\\SHELL32.dll",
+    "C:\\windows\\system32\\SHLWAPI.dll",
+    "C:\\windows\\system32\\mswsock.dll",
+    "C:\\windows\\System32\\wshtcpip.dll",
+    "C:\\windows\\System32\\wship6.dll",
+    "C:\\windows\\system32\\bcryptprimitives.dll",
+    "\\\\?\\D:\\Git\\ods-inputtext\\node_modules\\gulp-sass\\node_modules\\node-sass\\vendor\\win32-x64-72\\binding.node",
+    "C:\\windows\\system32\\cryptbase.dll",
+    "C:\\windows\\system32\\dhcpcsvc.DLL",
+    "C:\\windows\\system32\\dhcpcsvc6.DLL",
+    "C:\\windows\\system32\\NLAapi.dll",
+    "C:\\windows\\system32\\napinsp.dll",
+    "C:\\windows\\system32\\pnrpnsp.dll",
+    "C:\\windows\\system32\\DNSAPI.dll",
+    "C:\\windows\\System32\\winrnr.dll"
+  ]
+}
