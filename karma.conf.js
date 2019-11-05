@@ -16,19 +16,7 @@ module.exports = config => {
 
             esm: {
                 nodeResolve: true,
-            },
-
-            browsers: ['Chrome', 'ChromeHeadless', 'ChromeHeadlessNoSandbox'],
-
-            // you can define custom flags
-            customLaunchers: {
-                ChromeHeadlessNoSandbox: {
-                    base: 'ChromeHeadless',
-                    flags: ['--no-sandbox']
-                }
             }
-
-
         }),
     );
     return config;
