@@ -75,10 +75,34 @@ The \<ods-inputtext> element should be used in situations where users may:
 
 ## API Code Examples
 
-Default inputtext
-
+### Required input with label and help text
 ```html
-<ods-inputtext>Hello World</ods-inputtext>
+<ods-inputtext label="First name" helptext="Enter your first name" required></ods-inputtext>
+```
+
+### Required input with label and value
+```html
+<ods-inputtext label="First name" value="Alaska" required></ods-inputtext>
+```
+
+### Optional input with label
+```html
+<ods-inputtext label="First name"></ods-inputtext>
+```
+
+### Required email input
+```html
+<ods-inputtext type="email" label="Email" required></ods-inputtext>
+```
+
+### Disabled input
+```html
+<ods-inputtext label="First name" disabled required></ods-inputtext>
+```
+
+### Input with persistent error
+```html
+<ods-inputtext label="First name" value="Alaska" error="This name already exists" required></ods-inputtext>
 ```
 
 ## Alternate build solutions
