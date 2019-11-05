@@ -103,10 +103,10 @@
     "sweep": "rm -rf ./altImports ./temp ./demo/css ./demo/fonts ./dist ./src/tokens | rm ./demo/sass/*token*.scss ./src/*.css ./src/*-css.js",
     "yamltest": "yamllint .travis.yml",
     "lint": "npm-run-all cssLint jsonLint yamltest",
-    "test": "karma start --coverage",
+    "test": "karma start --coverage --browsers ChromeHeadless",
     "test:debug": "karma start --no-single-run --auto-watch=true",
     "test:watch": "karma start --auto-watch=true --single-run=false",
-    "test:ci": "karma start --coverage --browsers ChromeHeadless",
+    "test:ci": "npm-run-all test lint",
     "processSrc": "gulp processSrc",
     "processImportsCanonical": "gulp processImportsCanonical",
     "processImportsVariable": "gulp processImportsVariable",
@@ -116,7 +116,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint",
+      "pre-commit": "npm-run-all test lint",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
