@@ -106,7 +106,7 @@ The \<ods-inputtext> element should be used in situations where users may:
 
 ## Alternate build solutions
 
-If you are unable to use the shadow DOM in your project (e.g. you need default HTML form behaviors), a light DOM version of the element is provided. Using the light DOM version will allow form fields to automatically be picked up when submitting the form without the use of additional Javascript.
+If you are unable to use the shadow DOM in your project (e.g. you need default HTML form behaviors), a light DOM version of the element is provided. Using the light DOM version will allow form fields to automatically be picked up when submitting the form without the use of additional Javascript, but will break the style encapsulation provided by the shadow DOM. Because of this, it is recommended you use the default component if possible.
 
 Define the dependency:
 ```javascript
