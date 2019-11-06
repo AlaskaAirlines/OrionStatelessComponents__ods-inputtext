@@ -62,15 +62,15 @@ The \<ods-inputtext> element should be used in situations where users may:
 | Attribute | Value type | Description |
 |----|----|----|
 | customValidationMessage | string | Overrides the browser validation message when the input is invalid.  |
+| disabled | boolean | If set, disables the input. |
 | error | string | Sets a persistent error message (e.g. an error message returned from the server). |
 | helpText | string | Sets the help text displayed below the input. |
+| isValid | boolean | Can be accessed to determine if the input is in an error state or not. Not intended to be set by the consumer. |
 | label | string | Sets the label text for the input. |
 | name | string | Populates the `name` attribute on the input. |
+| required | boolean | Populates the `required` attribute on the input. Used for client-side validation. |
 | type | string | Populates the `type` attribute on the input. Allowed values are `email` or `text`. If given value is not allowed or set, defaults to `text`. |
 | value | string | Populates the `value` attribute on the input. Can also be read to retrieve the current value of the input. |
-| disabled | boolean | If set, disables the input. |
-| isValid | boolean | Can be accessed to determine if the input is in an error state or not. Not intended to be set by the consumer. |
-| required | boolean | Populates the `required` attribute on the input. Used for client-side validation. |
 
 ## API Code Examples
 
