@@ -51,8 +51,8 @@
   &:focus,
   &--filled {    
     & + .inputText-label {
-      font-size: 0.75rem;
-      padding: var(--size-scale-sml) 0;
+      font-size: 0.875rem;
+      padding: var(--size-scale-sml) 0 0;
     }
   }
 
@@ -82,13 +82,13 @@
 }
 
 .inputText-helpText {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: var(--color-base-shark);
-}
+  margin: var(--size-scale-micro) 0;
 
-.inputText-errorText {
-  font-size: 0.75rem;
-  color: var(--color-base-chili);
+  &.error {
+    color: var(--color-base-chili);
+  }
 }
 
 .inputText-icon {

@@ -143,7 +143,7 @@ export default class OdsInputText extends LitElement {
 
       ${!this.isValid ?
         html`
-          <p class="inputText-errorText" aria-live="polite">${this.getErrorMessage()}</p>
+          <p class="inputText-helpText error" aria-live="polite">${this.getErrorMessage()}</p>
           <div class="iconContainer">
             <div class="inputText-icon alertIcon">
               ${this.alertSvg}
