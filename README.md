@@ -6,7 +6,7 @@
 
 # \<ods-inputtext>
 
-\<ods-inputtext> is a wrapper component containing styling and behavior for a HTML \<input> element and associated \<label>. It will also perform client-side validation of the input and display any resulting errors.
+\<ods-inputtext> is a wrapper component containing styling and behavior for a HTML \<input> element and associated \<label>. You can pass helper text to be displayed with the input. It will also perform client-side validation of the input and display any resulting errors.
 
 ## Docs
 
