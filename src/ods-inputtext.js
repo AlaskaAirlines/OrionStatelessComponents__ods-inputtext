@@ -74,6 +74,7 @@ export default class OdsInputText extends LitElement {
 
   handleBlur() {
     this.hasBlurred = true;
+    this.inputElement.scrollLeft = 0;
     this.validate();
   }
 
@@ -143,18 +144,22 @@ export default class OdsInputText extends LitElement {
       ${!this.isValid ?
         html`
           <p class="inputText-errorText" aria-live="polite">${this.getErrorMessage()}</p>
-          <div class="inputText-icon alertIcon">
-            ${this.alertSvg}
+          <div class="iconContainer">
+            <div class="inputText-icon alertIcon">
+              ${this.alertSvg}
+            </div>
           </div>` :
         html`
           <p class="inputText-helpText ${this.getDisabledClass()}" aria-live="polite">${this.helpText}</p>
-          <button
-            @click="${this.handleClickClear}"
-            aria-hidden="true"
-            class="inputText-icon iconButton"
-            tabindex="-1">
-            ${this.closeSvg}
-          </button>`
+          <div class="iconContainer">
+            <button
+              @click="${this.handleClickClear}"
+              aria-hidden="true"
+              class="inputText-icon iconButton"
+              tabindex="-1">
+              ${this.closeSvg}
+            </button>
+          </div>`
       }
     `;
   }
