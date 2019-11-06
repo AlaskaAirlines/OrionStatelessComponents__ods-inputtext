@@ -6,7 +6,7 @@
 
 # \<ods-inputtext>
 
-\<ods-inputtext> is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for the purpose of ...
+\<ods-inputtext> is a wrapper component containing styling and behavior for a HTML \<input> element and associated \<label>.
 
 ## Docs
 
@@ -47,16 +47,15 @@ import "@alaskaairux/ods-inputtext";
 **Reference component in HTML**
 
 ```html
-<ods-inputtext>Hello World</ods-inputtext>
+<ods-inputtext label="First name" required></ods-inputtext>
 ```
 
 ## inputtext use cases
 
 The \<ods-inputtext> element should be used in situations where users may:
 
-* ...
-* ...
-* ...
+* enter a single line of text into a form
+* enter their email into a form
 
 ## Properties:
 
@@ -70,7 +69,7 @@ The \<ods-inputtext> element should be used in situations where users may:
 | type | string | Populates the `type` attribute on the input. Allowed values are `email` or `text`. If given value is not allowed or set, defaults to `text`. |
 | value | string | Populates the `value` attribute on the input. Can also be read to retrieve the current value of the input. |
 | disabled | boolean | If set, disables the input. |
-| isValid | boolean | Can be accessed to determine if the input is in an error state or not. |
+| isValid | boolean | Can be accessed to determine if the input is in an error state or not. Not intended to be set by the consumer. |
 | required | boolean | Populates the `required` attribute on the input. Used for client-side validation. |
 
 ## API Code Examples
@@ -107,9 +106,19 @@ The \<ods-inputtext> element should be used in situations where users may:
 
 ## Alternate build solutions
 
-Why would you need this? With all Orion custom elements the CSS for the element is embedded within the shadow DOM of the custom element. If your development environment is not allowing for the use of shadow DOM elements, the CSS for each element is distributed via additional resources within the npm package.
+If you are unable to use the shadow DOM in your project (e.g. you need default HTML form behaviors), a light DOM version of the element is provided. Using the light DOM version will allow form fields to automatically be picked up when submitting the form without the use of additional Javascript.
 
-[Read more about how to use alternate CSS build resources](https://github.com/AlaskaAirlines/OrionStatelessComponents__docs/blob/master/src/ALT_BUILD.md)
+Define the dependency:
+```javascript
+import "@alaskaairux/ods-inputtext-light";
+```
+
+Use the component:
+```html
+<ods-inputtext-light></ods-inputtext-light>
+```
+
+While the component's CSS has been namespaced to prevent affecting anything else on the page, any CSS you write could potentially affect elements within the component. Use with caution. 
 
 
 ## Development
@@ -122,7 +131,7 @@ Please be sure to review the [contribution guidelines](https://github.com/Alaska
 
 Once the project has been cloned to your local resource and you have installed all the dependencies you will need to open three different shell sessions. One is for the **Gulp tasks**, the second is for a series of **npm tasks** and the last is to run the **Polymer server**.
 
-**Peer depdency:** Please make sure Polymer is installed globally in order to run the Polymer server. See [ODS Stateless Component Development Details](https://github.com/AlaskaAirlines/OrionStatelessComponents__docs/blob/master/src/TECH_DETAILS.md) for more information.
+**Peer dependency:** Please make sure Polymer is installed globally in order to run the Polymer server. See [ODS Stateless Component Development Details](https://github.com/AlaskaAirlines/OrionStatelessComponents__docs/blob/master/src/TECH_DETAILS.md) for more information.
 
 ```bash
 $ npm i polymer-cli
@@ -138,6 +147,9 @@ $ npm run dev
 // shell terminal three
 polymer serve
 ```
+
+### Testing
+Automated tests are required for every Orion component. See `.\test\ods-inputtext.test.js` for the tests for this component. Run `npm test` to run the tests and check code coverage. Tests must pass and meet a certain coverage threshold to commit. See [the testing documentation](https://github.com/AlaskaAirlines/OrionStatelessComponents__docs/blob/master/src/TESTS.md) for more details. 
 
 ##
 <footer>
