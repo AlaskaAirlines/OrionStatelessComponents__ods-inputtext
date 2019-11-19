@@ -104,23 +104,6 @@ The \<ods-inputtext> element should be used in situations where users may:
 <ods-inputtext label="First name" value="Alaska" error="This name already exists" required></ods-inputtext>
 ```
 
-## Alternate build solutions
-
-If you are unable to use the shadow DOM in your project (e.g. you need default HTML form behaviors), a light DOM version of the element is provided. Using the light DOM version will allow form fields to automatically be picked up when submitting the form without the use of additional Javascript, but will break the style encapsulation provided by the shadow DOM. Because of this, it is recommended you use the default component if possible.
-
-Define the dependency:
-```javascript
-import "@alaskaairux/ods-inputtext-light";
-```
-
-Use the component:
-```html
-<ods-inputtext-light></ods-inputtext-light>
-```
-
-While the component's CSS has been namespaced to prevent affecting anything else on the page, any CSS you write could potentially affect elements within the component. Use with caution. 
-
-
 ## Development
 
 In order to develop against this project, if you are not part of the core team, you will be required to fork the project prior to submitting a pull request.
