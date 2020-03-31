@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.0.2](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/compare/v1.0.1...v1.0.2) (2020-03-31)
+
+
+### Bug Fixes
+
+* [#2](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/issues/2) caret color for text input ([939441b](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/commit/939441b29655bf19c42cad8482c90c431abf5f98))
+
 ## [1.0.1](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/compare/v1.0.0...v1.0.1) (2019-11-19)
 
 
