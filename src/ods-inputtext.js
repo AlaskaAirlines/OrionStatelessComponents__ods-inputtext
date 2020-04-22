@@ -8,11 +8,9 @@ import { classMap } from 'lit-html/directives/class-map.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 import "focus-visible/dist/focus-visible.min.js";
-import componentProperties from "./tokens/componentShapeProperties-css.js";
 import styleCss from "./style-css.js";
-import iconProperties from '@alaskaairux/orion-icons/dist/tokens/CSSTokenProperties-css.js';
-import closelg from '@alaskaairux/orion-icons/dist/icons/closelg_es6.js';
-import alert from '@alaskaairux/orion-icons/dist/icons/alert_es6.js';
+import closelg from '@alaskaairux/icons/dist/icons/interface/x-lg_es6.js';
+import alert from '@alaskaairux/icons/dist/icons/alert/error_es6.js';
 
 export default class OdsInputText extends LitElement {
   constructor() {
@@ -82,7 +80,7 @@ export default class OdsInputText extends LitElement {
     /*
      * If the error property is set, then the error message should persist
      * and take precedence over client side validation
-     */  
+     */
     if (this.error) {
       return;
     }
@@ -120,11 +118,9 @@ export default class OdsInputText extends LitElement {
     };
 
     return html`
-      ${componentProperties}
       ${styleCss}
-      ${iconProperties}
 
-      <input 
+      <input
         @input="${this.handleInput}"
         @blur="${this.handleBlur}"
         class="${classMap(this.inputClasses)}"
@@ -135,7 +131,7 @@ export default class OdsInputText extends LitElement {
         ?disabled="${this.disabled}"
         .value="${ifDefined(this.value)}"
       />
-      
+
       ${this.required ?
         html`<label for=${this.id} class="inputText-label ${this.getDisabledClass()}">${this.label}</label>` :
         html`<label for=${this.id} class="inputText-label ${this.getDisabledClass()}">${this.label} (optional)</label>`

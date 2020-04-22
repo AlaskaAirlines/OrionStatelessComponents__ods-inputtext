@@ -1,20 +1,18 @@
-<img src="https://resource.alaskaair.net/-/media/2C1969F8FB244C919205CD48429C13AC" alt="Orion Design System Logo" title="Be the change you want to see" width="125" align="right" />
-
-[![Build Status](https://travis-ci.org/AlaskaAirlines/OrionStatelessComponents__ods-inputtext.svg?branch=master)](https://travis-ci.org/AlaskaAirlines/OrionStatelessComponents__ods-inputtext)
+[![Build Status](https://travis-ci.org/AlaskaAirlines/ods-inputtext.svg?branch=master)](https://travis-ci.org/AlaskaAirlines/ods-inputtext)
 ![npm (scoped)](https://img.shields.io/npm/v/@alaskaairux/ods-inputtext.svg?color=orange)
 ![NPM](https://img.shields.io/npm/l/@alaskaairux/ods-inputtext.svg?color=blue)
 
 # \<ods-inputtext>
 
-\<ods-inputtext> is a wrapper component containing styling and behavior for a HTML \<input> element and associated \<label>. You can pass helper text to be displayed with the input. It will also perform client-side validation of the input and display any resulting errors.
+`<ods-inputtext>` is a wrapper component containing styling and behavior for a HTML `<input>` element and associated `<label>`. You can pass helper text to be displayed with the input. It will also perform client-side validation of the input and display any resulting errors.
 
 ## Docs
 
-All information regarding Project Setup, Technical Details, Tests and information regarding ODS Stateless Components can be found in the [docs](https://github.com/AlaskaAirlines/OrionStatelessComponents__docs/tree/master/src) project repository.
+All information regarding Project Setup, Technical Details, Tests and information regarding ODS Stateless Components can be found in the [docs](https://github.com/AlaskaAirlines/auro_docs/tree/master/src) project repository.
 
 ## UI development browser support
 
-For the most up to date information on UI development browser support, see [docs/BROWSER_SUPPORT.md](https://github.com/AlaskaAirlines/OrionStatelessComponents__docs/blob/master/src/BROWSER_SUPPORT.md)
+For the most up to date information on UI development browser support, see [docs/BROWSER_SUPPORT.md](https://github.com/AlaskaAirlines/auro_docs/blob/master/src/BROWSER_SUPPORT.md)
 
 ## Install
 
@@ -26,9 +24,16 @@ Installing as a direct, dev or peer dependency is up to the user installing the 
 
 ### Design Token CSS Custom Property dependency
 
-The use of any ODS custom element has a dependency on the [ODS Design Tokens](https://github.com/AlaskaAirlines/OrionDesignTokens).
+The use of any ODS custom element has a dependency on the [ODS Design Tokens](https://github.com/AlaskaAirlines/OrionDesignTokens). There are two options for including the necessary tokens. Choosing between Sass or CSS is specifically an option for how it is imported into the project. The content of the files are the same. 
 
-For additional details in regards to using Orion Design Tokens with components, please see [docs/TECH_DETAILS.md](https://github.com/AlaskaAirlines/OrionStatelessComponents__docs/blob/master/src/TECH_DETAILS.md)
+| file | syntax | variable type | description |
+|---|---|---|---|
+| CSSCustomProperties.css | CSS | css custom property | full array of Auro Design Tokens |
+| SassCustomProperties.scss | Sass | css custom property | full array of Auro Design Tokens |
+| CSSSizeCustomProperties.css | CSS | css custom property | sub-set of Auro Design Tokens, filtered on size |
+| SassSizeCustomProperties.scss | Sass | css custom property | sub-set of Auro Design Tokens, filtered on size |
+
+For additional details in regards to using Orion Design Tokens with components, please see [docs/TECH_DETAILS.md](https://github.com/AlaskaAirlines/auro_docs/blob/master/src/TECH_DETAILS.md)
 
 ### CSS Custom Property fallbacks
 
@@ -52,7 +57,7 @@ import "@alaskaairux/ods-inputtext";
 
 ## inputtext use cases
 
-The \<ods-inputtext> element should be used in situations where users may:
+The `<ods-inputtext>` element should be used in situations where users may:
 
 * enter a single line of text into a form
 * enter their email into a form
@@ -108,13 +113,13 @@ The \<ods-inputtext> element should be used in situations where users may:
 
 In order to develop against this project, if you are not part of the core team, you will be required to fork the project prior to submitting a pull request.
 
-Please be sure to review the [contribution guidelines](https://github.com/AlaskaAirlines/OrionStatelessComponents__docs/blob/master/src/CONTRIBUTING.md) for this project. Please make sure to **pay special attention** to the [conventional commits](https://github.com/AlaskaAirlines/OrionStatelessComponents__docs/blob/master/src/CONTRIBUTING.md#conventional-commits) section of the document.
+Please be sure to review the [contribution guidelines](https://github.com/AlaskaAirlines/auro_docs/blob/master/src/CONTRIBUTING.md) for this project. Please make sure to **pay special attention** to the [conventional commits](https://github.com/AlaskaAirlines/auro_docs/blob/master/src/CONTRIBUTING.md#conventional-commits) section of the document.
 
 ### Start development environment
 
 Once the project has been cloned to your local resource and you have installed all the dependencies you will need to open three different shell sessions. One is for the **Gulp tasks**, the second is for a series of **npm tasks** and the last is to run the **Polymer server**.
 
-**Peer dependency:** Please make sure Polymer is installed globally in order to run the Polymer server. See [ODS Stateless Component Development Details](https://github.com/AlaskaAirlines/OrionStatelessComponents__docs/blob/master/src/TECH_DETAILS.md) for more information.
+**Peer dependency:** Please make sure Polymer is installed globally in order to run the Polymer server. See [ODS Web Component Development Details](https://github.com/AlaskaAirlines/auro_docs/blob/master/src/TECH_DETAILS.md) for more information.
 
 ```bash
 $ npm i polymer-cli
@@ -132,7 +137,7 @@ polymer serve
 ```
 
 ### Testing
-Automated tests are required for every Orion component. See `.\test\ods-inputtext.test.js` for the tests for this component. Run `npm test` to run the tests and check code coverage. Tests must pass and meet a certain coverage threshold to commit. See [the testing documentation](https://github.com/AlaskaAirlines/OrionStatelessComponents__docs/blob/master/src/TESTS.md) for more details. 
+Automated tests are required for every Orion component. See `.\test\ods-inputtext.test.js` for the tests for this component. Run `npm test` to run the tests and check code coverage. Tests must pass and meet a certain coverage threshold to commit. See [the testing documentation](https://github.com/AlaskaAirlines/auro_docs/blob/master/src/TESTS.md) for more details. 
 
 ##
 <footer>
