@@ -1,5 +1,13 @@
 # Semantic Release Automated Changelog
 
+## [1.0.4](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/compare/v1.0.3...v1.0.4) (2020-04-22)
+
+
+### Bug Fixes
+
+* broken UI in light DOM version [#8](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/issues/8) ([6073213](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/commit/6073213e889a40fbf2d70e212fd3d0ecc9bd4909))
+* missing alert_es6.js [#9](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/issues/9) ([e730566](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/commit/e7305668c01a5b4c0a096152aec3a933aec266b4))
+
 ## [1.0.3](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/compare/v1.0.2...v1.0.3) (2020-04-21)
 
 
