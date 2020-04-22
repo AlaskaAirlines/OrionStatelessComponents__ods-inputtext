@@ -16,7 +16,8 @@
 @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/baselineLTE";
 
 // container styles - defines the look of the outer custom componet
-:host {
+:host,
+ods-inputtext-light {
   position: relative;
   display: block;
 }
