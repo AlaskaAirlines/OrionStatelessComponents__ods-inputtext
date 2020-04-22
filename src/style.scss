@@ -6,15 +6,14 @@
 // Creates ods-inputtext CSS UI definition of shape
 
 // Boilerplate Sass imports
-@import "./tokens/tokenVariables";
+@import "./node_modules/@alaskaairux/orion-design-tokens/dist/tokens/TokenVariables";
 @import "./tokens/componentShapeVariables";
 
-@import "./tokens/tokenProperties";
+@import "./node_modules/@alaskaairux/orion-design-tokens/dist/tokens/TokenProperties";
 @import "./tokens/componentShapeProperties";
 
 @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/breakpoints";
 @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/baselineLTE";
-// @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/animation";
 
 // container styles - defines the look of the outer custom componet
 :host {
