@@ -30,12 +30,13 @@ ods-inputtext-light {
   border: 0 solid var(--color-base-shark);
   border-radius: 0;
   border-width: 0 0 var(--border-width-thin);
-  padding: var(--size-scale-xl) var(--size-scale-lg) var(--size-scale-sml) 0;
+  padding: var(--size-scale-xl) var(--size-scale-xl) var(--size-scale-sml) 0;
   position: relative;
   transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   width: 100%;
   font-size: var(--size-breakpoint-all-med);
   caret-color: var(--color-brand-blue-atlas-base);
+  background-color: transparent;
 
   &:focus {
     border-color: var(--color-brand-blue-atlas-base);
@@ -122,12 +123,9 @@ ods-inputtext-light {
 }
 
 .iconContainer {
-  background: linear-gradient(-90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 50%, rgba(255, 255, 255, 0) 73%, rgba(255, 255, 255, 0) 100%);
   position: absolute;
   right: 0;
-  top: var(--size-scale-xl);
-  height: var(--size-scale-lg);
-  width: var(--size-scale-xxl);
+  top: calc(var(--size-scale-xl) - .1rem);
   pointer-events: none;
 }
 
