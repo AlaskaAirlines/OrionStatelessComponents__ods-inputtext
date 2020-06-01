@@ -2,19 +2,16 @@
 ![npm (scoped)](https://img.shields.io/npm/v/@alaskaairux/ods-inputtext.svg?color=orange)
 ![NPM](https://img.shields.io/npm/l/@alaskaairux/ods-inputtext.svg?color=blue)
 
-# \<ods-inputtext>
+# inputtext
 
 `<ods-inputtext>` is a wrapper component containing styling and behavior for a HTML `<input>` element and associated `<label>`. You can pass helper text to be displayed with the input. It will also perform client-side validation of the input and display any resulting errors.
 
-## Docs
-
-All information regarding Project Setup, Technical Details, Tests and information regarding ODS Stateless Components can be found in the [docs](https://github.com/AlaskaAirlines/auro_docs/tree/master/src) project repository.
-
-## UI development browser support
-
-For the most up to date information on UI development browser support, see [docs/BROWSER_SUPPORT.md](https://github.com/AlaskaAirlines/auro_docs/blob/master/src/BROWSER_SUPPORT.md)
-
 ## Install
+
+[![Build Status](https://img.shields.io/travis/AlaskaAirlines/ods-inputtext.svg?branch=master&style=for-the-badge)](https://travis-ci.org/github/AlaskaAirlines/ods-inputtext.svg)
+[![See it on NPM!](https://img.shields.io/npm/v/@alaskaairux/ods-inputtext.svg?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@alaskaairux/ods-inputtext.svg)
+[![License](https://img.shields.io/npm/l/@alaskaairux/ods-inputtext.svg?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
+[![issues](https://img.shields.io/github/issues-raw/AlaskaAirlines/ods-inputtext.svg?style=for-the-badge)](https://github.com/AlaskaAirlines/ods-inputtext.svg/issues)
 
 ```shell
 $ npm i @alaskaairux/ods-inputtext
@@ -138,9 +135,3 @@ polymer serve
 
 ### Testing
 Automated tests are required for every Orion component. See `.\test\ods-inputtext.test.js` for the tests for this component. Run `npm test` to run the tests and check code coverage. Tests must pass and meet a certain coverage threshold to commit. See [the testing documentation](https://github.com/AlaskaAirlines/auro_docs/blob/master/src/TESTS.md) for more details. 
-
-##
-<footer>
-Alaska Airlines Orion Design System<br>
-Copyright 2019 Alaska Airlines, Inc. or its affiliates. All Rights Reserved.
-</footer>
