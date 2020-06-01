@@ -1,7 +1,3 @@
-[![Build Status](https://travis-ci.org/AlaskaAirlines/ods-inputtext.svg?branch=master)](https://travis-ci.org/AlaskaAirlines/ods-inputtext)
-![npm (scoped)](https://img.shields.io/npm/v/@alaskaairux/ods-inputtext.svg?color=orange)
-![NPM](https://img.shields.io/npm/l/@alaskaairux/ods-inputtext.svg?color=blue)
-
 # inputtext
 
 `<ods-inputtext>` is a wrapper component containing styling and behavior for a HTML `<input>` element and associated `<label>`. You can pass helper text to be displayed with the input. It will also perform client-side validation of the input and display any resulting errors.
