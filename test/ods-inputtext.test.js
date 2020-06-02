@@ -135,6 +135,15 @@ describe('ods-inputtext', () => {
     expect(spy.callCount).to.be.greaterThan(0);
   });
 
+  it('is programmatically focusable', async () => {
+    const el = await fixture(html`
+      <ods-inputtext label="Label"></ods-inputtext>
+    `);
+
+    el.focus();
+    expect(document.activeElement === el).to.be.true;
+  })
+
   it('is accessible', async () => {
     const el = await fixture(html`
       <ods-inputtext label="Label text"></ods-inputtext>

@@ -42,6 +42,10 @@ export default class OdsInputText extends LitElement {
     };
   }
 
+  focus() {
+    this.inputElement.focus();
+  }
+
   connectedCallback() {
     super.connectedCallback();
     this.isValid = !this.error;
