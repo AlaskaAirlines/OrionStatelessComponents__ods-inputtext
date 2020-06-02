@@ -142,7 +142,7 @@ describe('ods-inputtext', () => {
 
     el.focus();
     expect(document.activeElement === el).to.be.true;
-  })
+  });
 
   it('is accessible', async () => {
     const el = await fixture(html`
