@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.0.6](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/compare/v1.0.5...v1.0.6) (2020-06-02)
+
+
+### Bug Fixes
+
+* unable to call focus() on element [#13](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/issues/13) ([e1e3a3c](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/commit/e1e3a3cf04516d54481f5414d9f4a18a9b4c01e4))
+
 ## [1.0.5](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/compare/v1.0.4...v1.0.5) (2020-05-20)
 
 
