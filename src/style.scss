@@ -27,10 +27,14 @@ ods-inputtext-light {
 
 
 .inputText {
-  border: 0 solid var(--color-base-shark);
+  // Border, padding, and margin styles are written longhand on purpose to prevent issues with ShadyCSS styling in IE11
+  // See issue #15 in this repo  
+  border: 0 solid;
+  border-color: var(--color-base-shark);
   border-radius: 0;
-  border-width: 0 0 var(--border-width-thin);
-  padding: var(--size-scale-xl) var(--size-scale-xl) var(--size-scale-sml) 0;
+  border-bottom-width: var(--border-width-thin);
+  padding: var(--size-scale-xl) var(--size-scale-xl) var(--size-scale-sml);
+  padding-left: 0;
   position: relative;
   transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   width: 100%;
@@ -54,7 +58,8 @@ ods-inputtext-light {
   &--filled {
     & + .inputText-label {
       font-size: 0.875rem;
-      padding: var(--size-scale-sml) 0 0;
+      padding: 0;
+      padding-top: var(--size-scale-sml);
     }
   }
 
@@ -81,13 +86,17 @@ ods-inputtext-light {
   pointer-events: none;
   position: absolute;
   transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-  padding: var(--size-scale-xl) 0 0;
+  padding: 0;
+  padding-top: var(--size-scale-xl);
 }
 
 .inputText-helpText {
   font-size: 0.875rem;
   color: var(--color-base-shark);
-  margin: var(--size-scale-micro) 0;
+  margin-top: var(--size-scale-micro);
+  margin-bottom: var(--size-scale-micro);
+  margin-left: 0;
+  margin-right: 0;
 
   &.error {
     color: var(--color-base-chili);
