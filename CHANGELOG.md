@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.0.7](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/compare/v1.0.6...v1.0.7) (2020-06-03)
+
+
+### Bug Fixes
+
+* styling issues in IE11 [#15](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/issues/15) ([77a27cd](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/commit/77a27cd4ddc6491b4e6dc94d2c8935e5349be2d8))
+
 ## [1.0.6](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/compare/v1.0.5...v1.0.6) (2020-06-02)
 
 
