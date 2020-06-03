@@ -4,10 +4,10 @@
 
 ## Install
 
-[![Build Status](https://img.shields.io/travis/AlaskaAirlines/ods-inputtext.svg?branch=master&style=for-the-badge)](https://travis-ci.org/github/AlaskaAirlines/ods-inputtext.svg)
-[![See it on NPM!](https://img.shields.io/npm/v/@alaskaairux/ods-inputtext.svg?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@alaskaairux/ods-inputtext.svg)
+[![Build Status](https://img.shields.io/travis/AlaskaAirlines/ods-inputtext?branch=master&style=for-the-badge)](https://travis-ci.org/github/AlaskaAirlines/ods-inputtext)
+[![See it on NPM!](https://img.shields.io/npm/v/@alaskaairux/ods-inputtext.svg?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@alaskaairux/ods-inputtext)
 [![License](https://img.shields.io/npm/l/@alaskaairux/ods-inputtext.svg?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
-[![issues](https://img.shields.io/github/issues-raw/AlaskaAirlines/ods-inputtext.svg?style=for-the-badge)](https://github.com/AlaskaAirlines/ods-inputtext.svg/issues)
+[![issues](https://img.shields.io/github/issues-raw/AlaskaAirlines/ods-inputtext?style=for-the-badge)](https://github.com/AlaskaAirlines/ods-inputtext/issues)
 
 ```shell
 $ npm i @alaskaairux/ods-inputtext
