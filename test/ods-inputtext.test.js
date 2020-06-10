@@ -144,6 +144,26 @@ describe('ods-inputtext', () => {
     expect(document.activeElement === el).to.be.true;
   });
 
+  it('updates validity when error message set after creation', async () => {
+    const el = await fixture(html`
+      <ods-inputtext></ods-inputtext>
+    `);
+
+    el.error = 'New error message';
+    await elementUpdated(el);
+    expect(el.isValid).to.be.false;
+  });
+
+  it('updates validity when error message removed after creation', async () => {
+    const el = await fixture(html`
+      <ods-inputtext error="Test error"></ods-inputtext>
+    `);
+
+    el.error = '';
+    await elementUpdated(el);
+    expect(el.isValid).to.be.true;
+  });
+
   it('is accessible', async () => {
     const el = await fixture(html`
       <ods-inputtext label="Label text"></ods-inputtext>

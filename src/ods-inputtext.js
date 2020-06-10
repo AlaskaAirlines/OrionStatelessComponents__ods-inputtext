@@ -24,6 +24,9 @@ export default class OdsInputText extends LitElement {
     // Default property values
     this.id = "input-element";
     this.label = "Input label";
+
+    // Internal error state used in custom getter/setter
+    this._error = null;
   }
 
   static get properties() {
@@ -40,6 +43,17 @@ export default class OdsInputText extends LitElement {
       isValid:                 { type: Boolean },
       required:                { type: Boolean }
     };
+  }
+
+  set error(value) {
+    // custom setter so we can re-validate on update
+    let oldVal = this._error;
+    this._error = value;
+    this.requestUpdate('error', oldVal).then(this.validate.bind(this));
+  } 
+
+  get error() {
+    return this._error;
   }
 
   connectedCallback() {
@@ -85,7 +99,8 @@ export default class OdsInputText extends LitElement {
      * If the error property is set, then the error message should persist
      * and take precedence over client side validation
      */
-    if (this.error) {
+    if (this.error && this.error.length > 0) {
+      this.isValid = false;
       return;
     }
 
