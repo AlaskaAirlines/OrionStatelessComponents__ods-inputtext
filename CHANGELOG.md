@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.0.8](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/compare/v1.0.7...v1.0.8) (2020-06-10)
+
+
+### Bug Fixes
+
+* validity not updating on error change [#19](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/issues/19) ([a00ea70](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/commit/a00ea70c2757ed4a35c104140dc752c496db2118))
+
 ## [1.0.7](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/compare/v1.0.6...v1.0.7) (2020-06-03)
 
 
