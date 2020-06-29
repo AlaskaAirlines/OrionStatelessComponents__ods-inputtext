@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.0.9](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/compare/v1.0.8...v1.0.9) (2020-06-29)
+
+
+### Bug Fixes
+
+* [#23](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/issues/23) issues with a11y voice over ([33757a5](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/commit/33757a5ddbc93f3c6fda001ce4132c3f6b91a1ca))
+
 ## [1.0.8](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/compare/v1.0.7...v1.0.8) (2020-06-10)
 
 
