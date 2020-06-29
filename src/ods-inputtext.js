@@ -22,11 +22,13 @@ export default class OdsInputText extends LitElement {
     this.allowedInputTypes = ["text", "email"];
 
     // Default property values
-    this.id = "input-element";
-    this.label = "Input label";
+    // this.id = "input-element";
+    // this.label = "Input label";
 
     // Internal error state used in custom getter/setter
     this._error = null;
+
+    this.uniqueID = Math.random().toString(36).substring(2, 8);
   }
 
   static get properties() {
@@ -50,7 +52,7 @@ export default class OdsInputText extends LitElement {
     let oldVal = this._error;
     this._error = value;
     this.requestUpdate('error', oldVal).then(this.validate.bind(this));
-  } 
+  }
 
   get error() {
     return this._error;
@@ -149,6 +151,7 @@ export default class OdsInputText extends LitElement {
         ?required="${this.required}"
         ?disabled="${this.disabled}"
         .value="${ifDefined(this.value)}"
+        aria-describedby="${this.uniqueID}"
       />
 
       ${this.required ?
@@ -158,14 +161,14 @@ export default class OdsInputText extends LitElement {
 
       ${!this.isValid ?
         html`
-          <p class="inputText-helpText error" aria-live="polite">${this.getErrorMessage()}</p>
+          <p class="inputText-helpText error" role="alert" aria-live="assertive">${this.getErrorMessage()}</p>
           <div class="iconContainer">
             <div class="inputText-icon alertIcon">
               ${this.alertSvg}
             </div>
           </div>` :
         html`
-          <p class="inputText-helpText ${this.getDisabledClass()}" aria-live="polite">${this.helpText}</p>
+          <p id="${this.uniqueID}" class="inputText-helpText ${this.getDisabledClass()}">${this.helpText}</p>
           <div class="iconContainer">
             <button
               @click="${this.handleClickClear}"
