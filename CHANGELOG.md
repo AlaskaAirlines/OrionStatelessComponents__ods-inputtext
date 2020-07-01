@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.0.10](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/compare/v1.0.9...v1.0.10) (2020-07-01)
+
+
+### Bug Fixes
+
+* update to address outline on focus ([bf650f3](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/commit/bf650f31dd4ac40fc0447278315d900a49da6a7b))
+
 ## [1.0.9](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/compare/v1.0.8...v1.0.9) (2020-06-29)
 
 
