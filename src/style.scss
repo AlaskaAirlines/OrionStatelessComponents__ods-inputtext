@@ -22,13 +22,7 @@ ods-inputtext-light {
   display: block;
 }
 
-// layout styles - define any layout specifications for UI that is contained WITHIN the component
-// never define layout that would cause effect on element ouside the scope of this component
-
-
 .inputText {
-  // Border, padding, and margin styles are written longhand on purpose to prevent issues with ShadyCSS styling in IE11
-  // See issue #15 in this repo  
   border: 0 solid;
   border-color: var(--color-base-shark);
   border-radius: 0;
@@ -43,6 +37,7 @@ ods-inputtext-light {
   background-color: transparent;
 
   &:focus {
+    outline: none;
     border-color: var(--color-brand-blue-atlas-base);
     & ~ .iconContainer {
       background: none;
