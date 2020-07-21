@@ -1,4 +1,4 @@
-# inputtext
+# ods-inputtext web component
 
 `<ods-inputtext>` is a wrapper component containing styling and behavior for a HTML `<input>` element and associated `<label>`. You can pass helper text to be displayed with the input. It will also perform client-side validation of the input and display any resulting errors.
 
@@ -17,7 +17,7 @@ Installing as a direct, dev or peer dependency is up to the user installing the 
 
 ### Design Token CSS Custom Property dependency
 
-The use of any ODS custom element has a dependency on the [ODS Design Tokens](https://github.com/AlaskaAirlines/OrionDesignTokens). There are two options for including the necessary tokens. Choosing between Sass or CSS is specifically an option for how it is imported into the project. The content of the files are the same. 
+The use of any ODS custom element has a dependency on the [ODS Design Tokens](https://github.com/AlaskaAirlines/OrionDesignTokens). There are two options for including the necessary tokens. Choosing between Sass or CSS is specifically an option for how it is imported into the project. The content of the files are the same.
 
 | file | syntax | variable type | description |
 |---|---|---|---|
@@ -130,4 +130,4 @@ polymer serve
 ```
 
 ### Testing
-Automated tests are required for every Orion component. See `.\test\ods-inputtext.test.js` for the tests for this component. Run `npm test` to run the tests and check code coverage. Tests must pass and meet a certain coverage threshold to commit. See [the testing documentation](https://github.com/AlaskaAirlines/auro_docs/blob/master/src/TESTS.md) for more details. 
+Automated tests are required for every Orion component. See `.\test\ods-inputtext.test.js` for the tests for this component. Run `npm test` to run the tests and check code coverage. Tests must pass and meet a certain coverage threshold to commit. See [the testing documentation](https://github.com/AlaskaAirlines/auro_docs/blob/master/src/TESTS.md) for more details.
