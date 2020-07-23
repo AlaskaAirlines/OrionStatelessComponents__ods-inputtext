@@ -67,7 +67,7 @@ The `<ods-inputtext>` element should be used in situations where users may:
 | label | string | Sets the label text for the input. |
 | name | string | Populates the `name` attribute on the input. |
 | required | boolean | Populates the `required` attribute on the input. Used for client-side validation. |
-| type | string | Populates the `type` attribute on the input. Allowed values are `email` or `text`. If given value is not allowed or set, defaults to `text`. |
+| type | string | Populates the `type` attribute on the input. Allowed values are `password`, `email` or `text`. If given value is not allowed or set, defaults to `text`. |
 | value | string | Populates the `value` attribute on the input. Can also be read to retrieve the current value of the input. |
 
 ## API Code Examples

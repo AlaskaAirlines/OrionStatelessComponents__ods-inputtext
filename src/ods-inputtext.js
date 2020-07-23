@@ -19,7 +19,7 @@ export default class OdsInputText extends LitElement {
     this.closeSvg = this.getIconAsHtml(closelg);
     this.alertSvg = this.getIconAsHtml(alert);
 
-    this.allowedInputTypes = ["text", "email"];
+    this.allowedInputTypes = ["text", "email", "password"];
 
     // Default property values
     // this.id = "input-element";

@@ -22,6 +22,12 @@ ods-inputtext-light {
   display: block;
 }
 
+// this is to disable the toggle-password feature in MS Edge only
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+
 .inputText {
   border: 0 solid;
   border-color: var(--color-base-shark);
