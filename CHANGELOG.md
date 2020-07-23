@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [1.1.0](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/compare/v1.0.10...v1.1.0) (2020-07-23)
+
+
+### Features
+
+* add support for type password ([76d343d](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/commit/76d343de69032d2c31833a9f1c653592941816da))
+
 ## [1.0.10](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputtext/compare/v1.0.9...v1.0.10) (2020-07-01)
 
 
