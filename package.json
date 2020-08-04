@@ -80,6 +80,7 @@
     "stylelint": "^13.6.1",
     "stylelint-config-standard": "^18.3.0",
     "wc-sass-render": "^1.2.3",
+    "web-component-analyzer": "^1.1.6",
     "webpack-merge": "^4.2.2",
     "yaml-lint": "^1.2.4"
   },
@@ -89,6 +90,7 @@
   },
   "scripts": {
     "build": "npm-run-all sassRender cssLint jsonLint",
+    "apiBuild": "wca analyze 'src/*.js' --outFiles docs/api.md",
     "buildTokens": "node scripts/tokenScript.js",
     "copyFonts": "copyfiles -f ./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/fonts/*.* ./demo/fonts/",
     "cssLint": "stylelint ./src/*.css",
@@ -112,7 +114,7 @@
     "processImportsCanonical": "gulp processImportsCanonical",
     "processImportsVariable": "gulp processImportsVariable",
     "reprocessClean": "gulp reprocessClean",
-    "ciBuild": "npm-run-all buildTokens processSrc processImportsCanonical processImportsVariable stylefluxCanonical stylefluxVariable reprocessClean distTokens sassRender distJS",
+    "ciBuild": "npm-run-all buildTokens processSrc processImportsCanonical processImportsVariable stylefluxCanonical stylefluxVariable reprocessClean distTokens sassRender distJS apiBuild",
     "devBuild": "npm-run-all buildTokens processSrc distTokens sassRender distJS"
   },
   "husky": {
