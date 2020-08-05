@@ -90,7 +90,7 @@
   },
   "scripts": {
     "build": "npm-run-all sassRender cssLint jsonLint",
-    "apiBuild": "wca analyze 'src/*.js' --outFiles docs/api.md",
+    "apiBuild": "wca analyze 'src/ods-inputtext.js' --outFiles docs/api.md",
     "buildTokens": "node scripts/tokenScript.js",
     "copyFonts": "copyfiles -f ./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/fonts/*.* ./demo/fonts/",
     "cssLint": "stylelint ./src/*.css",
