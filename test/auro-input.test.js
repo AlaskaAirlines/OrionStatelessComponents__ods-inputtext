@@ -1,32 +1,33 @@
 import { fixture, html, expect, elementUpdated } from '@open-wc/testing';
 import sinon from 'sinon';
-import '../src/ods-inputtext.js';
- 
-describe('ods-inputtext', () => {
+import '../src/auro-input.js';
+
+describe('auro-input', () => {
+
   it('renders the label', async () => {
     const el = await fixture(html`
-      <ods-inputtext label="First name"></ods-inputtext>
+      <auro-input label="First name"></auro-input>
     `);
- 
+
     const root = el.shadowRoot;
     const label = root.querySelector('label');
     expect(label.textContent).to.equal('First name (optional)');
   });
- 
+
   it('sets value on the input', async () => {
     const el = await fixture(html`
-      <ods-inputtext value="other value" label="First name"></ods-inputtext>
+      <auro-input value="other value" label="First name"></auro-input>
     `);
- 
+
     const input = el.shadowRoot.querySelector('input');
     expect(input.value).to.equal('other value');
   });
- 
+
   it('clears the value when clicked', async () => {
     const el = await fixture(html`
-      <ods-inputtext value="other value" label="First name"></ods-inputtext>
+      <auro-input value="other value" label="First name"></auro-input>
     `);
- 
+
     const clearButton = el.shadowRoot.querySelector('button');
     clearButton.click();
     expect(el.value).to.equal('');
@@ -34,7 +35,7 @@ describe('ods-inputtext', () => {
 
   it('sets error when input not valid', async () => {
     const el = await fixture(html`
-      <ods-inputtext label="First name" required helptext="Help text" customvalidationmessage="Expected error"></ods-inputtext>
+      <auro-input label="First name" required helptext="Help text" customvalidationmessage="Expected error"></auro-input>
     `);
 
     const input = el.shadowRoot.querySelector('input');
@@ -51,14 +52,14 @@ describe('ods-inputtext', () => {
 
   it('always has error if error set', async () => {
     const el = await fixture(html`
-      <ods-inputtext label="First name" required helptext="Help text" error="Expected error"></ods-inputtext>
+      <auro-input label="First name" required helptext="Help text" error="Expected error"></auro-input>
     `);
 
     let error = el.shadowRoot.querySelector('p');
-    expect(error.textContent).to.equal('Expected error');    
+    expect(error.textContent).to.equal('Expected error');
 
     const input = el.shadowRoot.querySelector('input');
-    
+
     input.value = 'whatever';
     input.focus();
     input.blur();
@@ -71,7 +72,7 @@ describe('ods-inputtext', () => {
 
   it('allows email type', async () => {
     const el = await fixture(html`
-      <ods-inputtext type="email"></ods-inputtext>
+      <auro-input type="email"></auro-input>
     `);
 
     const input = el.shadowRoot.querySelector('input');
@@ -80,7 +81,7 @@ describe('ods-inputtext', () => {
 
   it('does not allow color type', async () => {
     const el = await fixture(html`
-      <ods-inputtext type="color"></ods-inputtext>
+      <auro-input type="color"></auro-input>
     `);
 
     const input = el.shadowRoot.querySelector('input');
@@ -89,7 +90,7 @@ describe('ods-inputtext', () => {
 
   it('sets name', async () => {
     const el = await fixture(html`
-      <ods-inputtext name="test"></ods-inputtext>
+      <auro-input name="test"></auro-input>
     `);
 
     const input = el.shadowRoot.querySelector('input');
@@ -98,7 +99,7 @@ describe('ods-inputtext', () => {
 
   it('sets value when input event triggered', async () => {
     const el = await fixture(html`
-      <ods-inputtext></ods-inputtext>
+      <auro-input></auro-input>
     `);
 
     const input = el.shadowRoot.querySelector('input');
@@ -109,7 +110,7 @@ describe('ods-inputtext', () => {
 
   it('sets disabled class on label when component disabled', async () => {
     const el = await fixture(html`
-      <ods-inputtext disabled label="Disabled input"></ods-inputtext>
+      <auro-input disabled label="Disabled input"></auro-input>
     `);
 
     const label = el.shadowRoot.querySelector('label');
@@ -118,7 +119,7 @@ describe('ods-inputtext', () => {
 
   it('validates input after first blur', async () => {
     const el = await fixture(html`
-      <ods-inputtext required type="email" label="Label"></ods-inputtext>
+      <auro-input required type="email" label="Label"></auro-input>
     `);
 
     const spy = sinon.spy(el, 'validate');
@@ -137,7 +138,7 @@ describe('ods-inputtext', () => {
 
   it('is programmatically focusable', async () => {
     const el = await fixture(html`
-      <ods-inputtext label="Label"></ods-inputtext>
+      <auro-input label="Label"></auro-input>
     `);
 
     el.focus();
@@ -146,7 +147,7 @@ describe('ods-inputtext', () => {
 
   it('updates validity when error message set after creation', async () => {
     const el = await fixture(html`
-      <ods-inputtext></ods-inputtext>
+      <auro-input></auro-input>
     `);
 
     el.error = 'New error message';
@@ -156,7 +157,7 @@ describe('ods-inputtext', () => {
 
   it('updates validity when error message removed after creation', async () => {
     const el = await fixture(html`
-      <ods-inputtext error="Test error"></ods-inputtext>
+      <auro-input error="Test error"></auro-input>
     `);
 
     el.error = '';
@@ -164,11 +165,25 @@ describe('ods-inputtext', () => {
     expect(el.isValid).to.be.true;
   });
 
-  it('is accessible', async () => {
+
+
+
+
+
+
+
+
+  it('auro-input is accessible', async () => {
     const el = await fixture(html`
-      <ods-inputtext label="Label text"></ods-inputtext>
+      <auro-input cssclass="testClass"></auro-input>
     `);
 
     await expect(el).to.be.accessible();
+  });
+
+  it('auro-input custom element is defined', async () => {
+    const el = await !!customElements.get("auro-input");
+
+    await expect(el).to.be.true;
   });
 });

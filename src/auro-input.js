@@ -1,19 +1,21 @@
-// Copyright (c) Alaska Air. All right reserved. Licensed under the Apache-2.0 license
+// Copyright (c) 2020 Alaska Airlines. All right reserved. Licensed under the Apache-2.0 license
 // See LICENSE in the project root for license information.
 
 // ---------------------------------------------------------------------
 
-import { LitElement, html } from "lit-element";
+import { LitElement, html, css } from "lit-element";
 import { classMap } from 'lit-html/directives/class-map.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
+// import AuroElement from '@alaskaairux/orion-web-core-style-sheets/dist/auroElement/auroElement';
 
+// Import touch detection lib
 import "focus-visible/dist/focus-visible.min.js";
 import styleCss from "./style-css.js";
 import closelg from '@alaskaairux/icons/dist/icons/interface/x-lg_es6.js';
 import alert from '@alaskaairux/icons/dist/icons/alert/error_es6.js';
 
 /**
- * InputText provides users a way to enter data into a form.
+ * auro-input provides users a way to enter data into a text field.
  *
  * @attr {String} customValidationMessage - Overrides the browser validation message when the input is invalid.
  * @attr {String} error - Sets a persistent error message (e.g. an error message returned from the server).
@@ -28,37 +30,46 @@ import alert from '@alaskaairux/icons/dist/icons/alert/error_es6.js';
  * @attr {Boolean} required - Populates the `required` attribute on the input. Used for client-side validation.
  */
 
-export default class OdsInputText extends LitElement {
+// build the component class
+export default class AuroInput extends LitElement {
   constructor() {
     super();
 
     /**
-     * Value is SVG for use
+     * @private Value is SVG for use
      */
     this.closeSvg = this.getIconAsHtml(closelg);
+
     /**
-     * Value is SVG for use
+     * @private Value is SVG for use
      */
     this.alertSvg = this.getIconAsHtml(alert);
 
     /**
-     * Set input type for element
+     * @private Set input type for element
      */
-    this.allowedInputTypes = ["text", "email", "password"];
+    this.allowedInputTypes = [
+      "text",
+      "email",
+      "password"
+    ];
 
     /**
-     * Internal error state used in custom getter/setter
+     * @private Internal error state used in custom getter/setter
      */
     this._error = null;
 
     /**
-     * Value is unique ID set at runtime
+     * @private Value is unique ID set at runtime
      */
     this.uniqueID = Math.random().toString(36).substring(2, 8);
   }
 
+
+  // function to define props used within the scope of this component
   static get properties() {
     return {
+      ...super.properties,
       customValidationMessage: { type: String },
       error:                   { type: String },
       helpText:                { type: String },
@@ -73,12 +84,19 @@ export default class OdsInputText extends LitElement {
     };
   }
 
+  static get styles() {
+    return css`
+      ${styleCss}
+    `;
+  }
 
   /**
-   * custom setter so we can re-validate on update
+   * @private custom setter so we can re-validate on update
+   * @param {string} value Error string
    */
   set error(value) {
-    let oldVal = this._error;
+    const oldVal = this._error;
+
     this._error = value;
     this.requestUpdate('error', oldVal).then(this.validate.bind(this));
   }
@@ -97,22 +115,27 @@ export default class OdsInputText extends LitElement {
   }
 
   /**
-   * Custom function to ensure that element is programmatically focusable
+   * @private Custom function to ensure that element is programmatically focusable
+   * @returns {object} Value of this.
    */
   focus() {
     this.inputElement.focus();
   }
 
   /**
-   * Parse imported CVG object data to string for HTML use
+   * @private Parse imported CVG object data to string for HTML use
+   * @param {string} icon HTML string for requested icon.
+   * @returns {object} Appended HTML for SVG.
    */
   getIconAsHtml(icon) {
-    let dom = new DOMParser().parseFromString(icon.svg, 'text/html');
+    const dom = new DOMParser().parseFromString(icon.svg, 'text/html');
+
     return dom.body.firstChild;
   }
 
   /**
-   * Clears data entered into the input element
+   * @private Clears data entered into the input element
+   * @returns {string} Replaces innerHTML with empty string.
    */
   handleClickClear() {
     this.inputElement.value = "";
@@ -121,10 +144,12 @@ export default class OdsInputText extends LitElement {
   }
 
   /**
-   * Validates value of the input in blur
+   * @private Validates value of the input in blur
+   * @param {string} el String entered into input.
+   * @returns {string} Validates string entered into the input field.
    */
-  handleInput(e) {
-    this.value = e.target.value;
+  handleInput(el) {
+    this.value = el.target.value;
 
     if (this.hasBlurred) {
       this.validate();
@@ -132,7 +157,8 @@ export default class OdsInputText extends LitElement {
   }
 
   /**
-   * Ensures that the element is always to the left on blur
+   * @private Ensures that the element is always to the left on blur
+   * @returns {state} Determines that user has left input.
    */
   handleBlur() {
     this.hasBlurred = true;
@@ -141,13 +167,15 @@ export default class OdsInputText extends LitElement {
   }
 
   /**
-    * If the error property is set, then the error message should persist
+    * @private If the error property is set, then the error message should persist
     * and take precedence over client side validation
+    * @returns {string} Validates string.
     */
   validate() {
 
     if (this.error && this.error.length > 0) {
       this.isValid = false;
+
       return;
     }
 
@@ -156,17 +184,21 @@ export default class OdsInputText extends LitElement {
   }
 
   /**
-    * Iterates over allowed input types
+    * @private Iterates over allowed input types
+    * @param {string} type Value entered into component prop.
+    * @returns {string} Iterates over allowed types array.
     */
   getInputType(type) {
     if (this.allowedInputTypes.includes(type)) {
       return type;
     }
+
     return "text";
   }
 
   /**
-    * Evaluates different error type messages
+    * @private Evaluates different error type messages
+    * @returns {string} Error string.
     */
   getErrorMessage() {
     if (this.error) {
@@ -175,26 +207,27 @@ export default class OdsInputText extends LitElement {
     if (this.customValidationMessage) {
       return this.customValidationMessage;
     }
+
     return this.internalError;
   }
 
   /**
-    * Custom function to apply disabled CSS class
+    * @private Custom function to apply disabled CSS class
+    * @returns {string} Disabled CSS class.
     */
   getDisabledClass() {
     return this.disabled ? "is-disabled" : "";
   }
 
+  // function that renders the HTML and CSS into  the scope of the component
   render() {
     this.inputClasses = {
-      "inputText": true,
-      "inputText--filled": this.value,
+      "inputElement": true,
+      "inputElement--filled": this.value,
       "error": !this.isValid
     };
 
     return html`
-      ${styleCss}
-
       <input
         @input="${this.handleInput}"
         @blur="${this.handleBlur}"
@@ -208,34 +241,36 @@ export default class OdsInputText extends LitElement {
         aria-describedby="${this.uniqueID}"
       />
 
-      ${this.required ?
-        html`<label for=${this.id} class="inputText-label ${this.getDisabledClass()}">${this.label}</label>` :
-        html`<label for=${this.id} class="inputText-label ${this.getDisabledClass()}">${this.label} (optional)</label>`
+      ${this.required
+        ? html`<label for=${this.id} class="inputElement-label ${this.getDisabledClass()}">${this.label}</label>`
+        : html`<label for=${this.id} class="inputElement-label ${this.getDisabledClass()}">${this.label} (optional)</label>`
       }
-
-      ${!this.isValid ?
-        html`
-          <p class="inputText-helpText error" role="alert" aria-live="assertive">${this.getErrorMessage()}</p>
+      ${!this.isValid
+        ? html`
+          <p class="inputElement-helpText error" role="alert" aria-live="assertive">${this.getErrorMessage()}</p>
           <div class="iconContainer">
-            <div class="inputText-icon alertIcon">
+            <div class="inputElement-icon alertIcon">
               ${this.alertSvg}
             </div>
-          </div>` :
-        html`
-          <p id="${this.uniqueID}" class="inputText-helpText ${this.getDisabledClass()}">${this.helpText}</p>
+          </div>`
+        : html`
+          <p id="${this.uniqueID}" class="inputElement-helpText ${this.getDisabledClass()}">${this.helpText}</p>
           <div class="iconContainer">
             <button
               @click="${this.handleClickClear}"
               aria-hidden="true"
-              class="inputText-icon iconButton"
+              class="inputElement-icon iconButton"
               tabindex="-1">
               ${this.closeSvg}
             </button>
           </div>`
-      }
-    `;
+        }
+      `;
   }
 }
 
+/* istanbul ignore else */
 // define the name of the custom component
-customElements.define("ods-inputtext", OdsInputText);
+if (!customElements.get("auro-input")) {
+  customElements.define("auro-input", AuroInput);
+}

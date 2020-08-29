@@ -1,10 +1,9 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: ''
+title: 'auro-input: [issue summary]'
 labels: 'Type: Bug'
 assignees: blackfalcon
-
 ---
 
 ## Describe the bug

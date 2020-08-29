@@ -1,115 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes"
+    />
+    <title>Auro Web Component Generator | auro-input custom element</title>
+    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script type="module">
+      import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
+      import '@polymer/iron-demo-helpers/demo-snippet';
+    </script>
+    <script type="module" src="../src/auro-input.js"></script>
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles"></style>
+    </custom-style>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes" />
-  <title>Orion Design System | ods-inputtext element</title>
-  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-  <script type="module">
-    import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
-    import '@polymer/iron-demo-helpers/demo-snippet';
-  </script>
-  <script type="module" src="../src/ods-inputtext.js"></script>
-  <script type="module" src="../src/ods-inputtext-light.js"></script>
-  <script src="../demo/alert.js"></script>
-  <script type="module">
-    import '../node_modules/@polymer/iron-icons/hardware-icons.js';
-  </script>
-  <custom-style>
-    <style is="custom-style" include="demo-pages-shared-styles"></style>
-  </custom-style>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+  <body>
+    <div class="vertical-section-container">
+      <h1>Shadow DOM examples</h1>
 
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
-</head>
+      <demo-snippet>
+        <template>
+          <auro-input type="password" label="Password" helptext="Please enter your password" required id="passwordTest01"></auro-input>
+        </template>
+      </demo-snippet>
 
-<body>
-  <div class="vertical-section-container">
-    <h1>ods-inputtext</h1>
+      <demo-snippet>
+        <template>
+          <auro-input type="password" label="Password" helptext="Please enter your password" required id="passwordTest02" error="what the hell are you thinking"></auro-input>
+        </template>
+      </demo-snippet>
 
-    <p>Component description ...</p>
+      <demo-snippet>
+        <template>
+          <auro-input label="First name" helptext="Enter your first name" required id="firstNameTest01"></auro-input>
+        </template>
+      </demo-snippet>
 
-    <p class="ironIcons">
-      <span class="util_floatLeft util_marginRight--med">Narrow
-        <iron-icon class="util_marginAuto util_displayBlock" icon="hardware:phone-iphone"></iron-icon>
-      </span>
-      <span class="util_is-narrowAppears util_floatLeft util_marginRight--med">Medium
-        <iron-icon class="util_marginAuto util_displayBlock" icon="hardware:tablet-android"></iron-icon>
-      </span>
-      <span class="util_is-tabletAppears util_floatLeft util_marginRight--med">Wide
-        <iron-icon class="util_marginAuto util_displayBlock" icon="hardware:tablet"></iron-icon>
-      </span>
-      <span class="util_is-desktopOnly util_floatLeft util_marginRight--med">Max
-        <iron-icon class="util_marginAuto util_displayBlock" icon="hardware:tv"></iron-icon>
-      </span>
-    </p>
+      <demo-snippet>
+        <template>
+          <auro-input value="Test" label="First name" helptext="Enter your first name" required id="firstNameTest02"></auro-input>
+        </template>
+      </demo-snippet>
 
-    <h4>Light DOM example</h4>
+      <demo-snippet>
+        <template>
+          <auro-input type="email" value="dale@alaskaair.com" label="Email" helptext="Enter your email" id="emailTest02"></auro-input>
+        </template>
+      </demo-snippet>
 
-    <demo-snippet>
-      <template>
-        <ods-inputtext-light type="email" label="Email address" helptext="Please enter your email" required id="eamilTest01"></ods-inputtext-light>
-      </template>
-    </demo-snippet>
+      <demo-snippet>
+        <template>
+          <auro-input value="Invalid input" helptext="Enter your first name" error="Not a real name" required id="invalidInputTest01"></auro-input>
+        </template>
+      </demo-snippet>
 
-    <h4>Shadow DOM examples</h4>
-
-    <demo-snippet>
-      <template>
-        <ods-inputtext type="password" label="Password" helptext="Please enter your password" required id="passwordTest01"></ods-inputtext>
-      </template>
-    </demo-snippet>
-
-    <demo-snippet>
-      <template>
-        <ods-inputtext type="password" label="Password" helptext="Please enter your password" required id="passwordTest02" error="what the hell are you thinking"></ods-inputtext>
-      </template>
-    </demo-snippet>
-
-    <demo-snippet>
-      <template>
-        <ods-inputtext label="First name" helptext="Enter your first name" required id="firstNameTest01"></ods-inputtext>
-      </template>
-    </demo-snippet>
-
-    <demo-snippet>
-      <template>
-        <ods-inputtext value="Test" label="First name" helptext="Enter your first name" required id="firstNameTest02"></ods-inputtext>
-      </template>
-    </demo-snippet>
-
-    <demo-snippet>
-      <template>
-        <ods-inputtext type="email" value="dale@alaskaair.com" label="Email" helptext="Enter your email" id="emailTest02"></ods-inputtext>
-      </template>
-    </demo-snippet>
-
-    <demo-snippet>
-      <template>
-        <ods-inputtext value="Invalid input" helptext="Enter your first name" error="Not a real name" required id="invalidInputTest01"></ods-inputtext>
-      </template>
-    </demo-snippet>
-
-    <demo-snippet>
-      <template>
-        <ods-inputtext disabled value="disabled" type="email" label="First name" helptext="Enter your first name" required id="disabledEmailTest01"></ods-inputtext>
-      </template>
-    </demo-snippet>
-
-    <h2>Element &#60;ods-inputtext&#62;</h2>
-
-    <pre><code>class OdsInputtext extends LitElement</code></pre>
-
-    <h3>Styling:</h3>
-    <p>Info ...</p>
-
-    <h3>Responsive state:</h3>
-    <p>Info ...</p>
-
-    <h3>Properties:</h3>
-    <code><strong>string:</strong> string</code>
-    <p>Info ...</p>
-  </div>
-</body>
-
+      <demo-snippet>
+        <template>
+          <auro-input disabled value="disabled" type="email" label="First name" helptext="Enter your first name" required id="disabledEmailTest01"></auro-input>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
 </html>

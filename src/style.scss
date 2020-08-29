@@ -1,23 +1,21 @@
-// Copyright (c) Alaska Air. All right reserved. Licensed under the Apache-2.0 license
+// Copyright (c) 2020 Alaska Airlines. All right reserved. Licensed under the Apache-2.0 license
 // See LICENSE in the project root for license information.
 
 // ---------------------------------------------------------------------
 
-// Creates ods-inputtext CSS UI definition of shape
-
-// Boilerplate Sass imports
-@import "./node_modules/@alaskaairux/orion-design-tokens/dist/tokens/TokenVariables";
-@import "./tokens/componentShapeVariables";
-
-@import "./node_modules/@alaskaairux/orion-design-tokens/dist/tokens/TokenProperties";
-@import "./tokens/componentShapeProperties";
+// Import Auro tokens
+@import "./node_modules/@alaskaairux/orion-design-tokens/dist/tokens/SCSSVariables";
+@import "./node_modules/@alaskaairux/orion-design-tokens/dist/tokens/SassCustomProperties";
 
 @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/breakpoints";
-@import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/baselineLTE";
+@import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/core";
 
-// container styles - defines the look of the outer custom componet
+// Support for auroElement styles
+@import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/auroElement/auroElement";
+
+// container styles - defines the look of the outer custom component
 :host,
-ods-inputtext-light {
+auro-input-light {
   position: relative;
   display: block;
 }
@@ -28,23 +26,23 @@ input::-ms-clear {
   display: none;
 }
 
-.inputText {
+.inputElement {
   border: 0 solid;
-  border-color: var(--color-base-shark);
+  border-color: var(--auro-color-border-primary-on-light);
   border-radius: 0;
-  border-bottom-width: var(--border-width-thin);
-  padding: var(--size-scale-xl) var(--size-scale-xl) var(--size-scale-sml);
+  border-bottom-width: 2px;
+  padding: 2rem 2rem var(--auro-size-xs);
   padding-left: 0;
   position: relative;
   transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   width: 100%;
-  font-size: var(--size-breakpoint-all-med);
-  caret-color: var(--color-brand-blue-atlas-base);
+  font-size: 1rem;
+  caret-color: var(--auro-color-ui-default-on-light);
   background-color: transparent;
 
   &:focus {
     outline: none;
-    border-color: var(--color-brand-blue-atlas-base);
+    border-color: var(--auro-color-ui-default-on-light);
     & ~ .iconContainer {
       background: none;
 
@@ -57,22 +55,22 @@ input::-ms-clear {
 
   &:focus,
   &--filled {
-    & + .inputText-label {
+    & + .inputElement-label {
       font-size: 0.875rem;
       padding: 0;
-      padding-top: var(--size-scale-sml);
+      padding-top: var(--auro-size-xs);
     }
   }
 
   &.error {
-    border-color: var(--color-base-chili);
-    caret-color: var(--color-base-chili);
+    border-color: var(--auro-color-alert-error-on-light);
+    caret-color: var(--auro-color-alert-error-on-light);
   }
 
   &:disabled {
     background: none;
-    border-color: var(--color-type-disabled);
-    color: var(--color-type-disabled);
+    border-color: var(--auro-color-border-disabled-on-light);
+    color: var(--auro-color-text-disabled-on-light);
   }
 
   &:invalid {
@@ -80,31 +78,31 @@ input::-ms-clear {
   }
 }
 
-.inputText-label {
-  color: var(--color-base-shark);
+.inputElement-label {
+  color: var(auro-color-text-primary-on-light);
   left: 0;
   top: 0;
   pointer-events: none;
   position: absolute;
   transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   padding: 0;
-  padding-top: var(--size-scale-xl);
+  padding-top: 2rem;
 }
 
-.inputText-helpText {
+.inputElement-helpText {
   font-size: 0.875rem;
-  color: var(--color-base-shark);
-  margin-top: var(--size-scale-micro);
-  margin-bottom: var(--size-scale-micro);
+  color: var(--auro-color-text-secondary-on-light);
+  margin-top: var(--auro-size-xxs);
+  margin-bottom: var(--auro-size-xxs);
   margin-left: 0;
   margin-right: 0;
 
   &.error {
-    color: var(--color-base-chili);
+    color: var(--auro-color-alert-error-on-light);
   }
 }
 
-.inputText-icon {
+.inputElement-icon {
   position: absolute;
   right: 0;
   padding: 0;
@@ -112,7 +110,7 @@ input::-ms-clear {
 }
 
 .alertIcon {
-  color: var(--color-base-chili);
+  color: var(--auro-color-alert-error-on-light);
 }
 
 .iconButton {
@@ -135,10 +133,10 @@ input::-ms-clear {
 .iconContainer {
   position: absolute;
   right: 0;
-  top: calc(var(--size-scale-xl) - .1rem);
+  top: calc(2rem - .1rem);
   pointer-events: none;
 }
 
 .is-disabled {
-  color: var(--color-type-disabled);
+  color: var(--auro-color-text-disabled-on-light);
 }
