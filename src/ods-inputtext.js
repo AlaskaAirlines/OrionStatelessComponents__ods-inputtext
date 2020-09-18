@@ -237,5 +237,8 @@ export default class OdsInputText extends LitElement {
   }
 }
 
+/* istanbul ignore else */
 // define the name of the custom component
-customElements.define("ods-inputtext", OdsInputText);
+if (!customElements.get("ods-inputtext")) {
+  customElements.define("ods-inputtext", OdsInputText);
+}
