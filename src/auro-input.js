@@ -12,6 +12,8 @@ import { ifDefined } from 'lit-html/directives/if-defined.js';
 import "focus-visible/dist/focus-visible.min.js";
 import styleCss from "./style-css.js";
 import closelg from '@alaskaairux/icons/dist/icons/interface/x-lg_es6.js';
+import viewPassword from '@alaskaairux/icons/dist/icons/interface/view-password_es6.js';
+import hidePassword from '@alaskaairux/icons/dist/icons/interface/hide-password_es6.js';
 import alert from '@alaskaairux/icons/dist/icons/alert/error_es6.js';
 
 /**
@@ -44,6 +46,16 @@ export default class AuroInput extends LitElement {
      * @private Value is SVG for use
      */
     this.alertSvg = this.getIconAsHtml(alert);
+
+    /**
+     * @private Value is SVG for use
+     */
+    this.hidePassword = this.getIconAsHtml(hidePassword);
+
+    /**
+     * @private Value is SVG for use
+     */
+    this.viewPassword = this.getIconAsHtml(viewPassword);
 
     /**
      * @private Set input type for element
@@ -219,6 +231,21 @@ export default class AuroInput extends LitElement {
     return this.disabled ? "is-disabled" : "";
   }
 
+  showPasswordIcon() {
+    if (this.type === 'password') {
+      return html`
+      <button
+        @click="${this.handleClickClear}"
+        aria-hidden="true"
+        class="inputElement-icon iconButton"
+        tabindex="-1">
+        ${this.viewPassword}
+      </button>`
+    }
+
+    return null;
+  }
+
   // function that renders the HTML and CSS into  the scope of the component
   render() {
     this.inputClasses = {
@@ -250,19 +277,23 @@ export default class AuroInput extends LitElement {
           <p class="inputElement-helpText error" role="alert" aria-live="assertive">${this.getErrorMessage()}</p>
           <div class="iconContainer">
             <div class="inputElement-icon alertIcon">
-              ${this.alertSvg}
+            ${this.showPasswordIcon()}
+            ${this.alertSvg}
             </div>
           </div>`
         : html`
           <p id="${this.uniqueID}" class="inputElement-helpText ${this.getDisabledClass()}">${this.helpText}</p>
           <div class="iconContainer">
-            <button
-              @click="${this.handleClickClear}"
-              aria-hidden="true"
-              class="inputElement-icon iconButton"
-              tabindex="-1">
-              ${this.closeSvg}
-            </button>
+            <div class="inputElement-icon">
+              ${this.showPasswordIcon()}
+              <button
+                @click="${this.handleClickClear}"
+                aria-hidden="true"
+                class="inputElement-icon iconButton"
+                tabindex="-1">
+                ${this.closeSvg}
+              </button>
+            </div>
           </div>`
         }
       `;

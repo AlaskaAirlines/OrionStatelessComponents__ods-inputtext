@@ -103,7 +103,8 @@ input::-ms-clear {
 }
 
 .inputElement-icon {
-  position: absolute;
+  // position: absolute;
+  display: flex;
   right: 0;
   padding: 0;
   pointer-events: auto;
